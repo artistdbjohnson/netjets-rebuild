@@ -3,11 +3,9 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
-import { jetImages } from "@/lib/jet-images";
-import { heroVideoDataUrl } from "@/lib/hero-video";
 
-// Locked seamless looping hero video — data URL (no binary GitHub / external CDN required)
-const VIDEO_URL = heroVideoDataUrl;
+// Public static assets (normal paths — no data-URL modules)
+const VIDEO_URL = "/video/hero-global-7500.mp4";
 
 const NAV_ITEMS = [
   { label: "Programs", href: "/programs" },
@@ -17,38 +15,38 @@ const NAV_ITEMS = [
   { label: "Careers", href: "/careers" },
 ];
 
-// Mixed inventory slideshow — data URLs (no binary GitHub push required)
+// Mixed inventory slideshow — public static paths
 const SLIDESHOW = [
   {
-    src: jetImages["global-7500-golden-hour.jpg"],
+    src: "/jets/global-7500-golden-hour.jpg",
     alt: "Bombardier Global 7500 at golden hour",
   },
   {
-    src: jetImages["global-7500-golden-side.jpg"],
+    src: "/jets/global-7500-golden-side.jpg",
     alt: "Bombardier Global 7500 side profile over clouds",
   },
   {
-    src: jetImages["challenger-350.jpg"],
+    src: "/jets/challenger-350.jpg",
     alt: "Bombardier Challenger 350",
   },
   {
-    src: jetImages["citation-latitude.jpg"],
+    src: "/jets/citation-latitude.jpg",
     alt: "Cessna Citation Latitude",
   },
   {
-    src: jetImages["phenom-300e.jpg"],
+    src: "/jets/phenom-300e.jpg",
     alt: "Embraer Phenom 300E",
   },
   {
-    src: jetImages["cabin-interior.jpg"],
+    src: "/jets/cabin-interior.jpg",
     alt: "NetJets cabin interior",
   },
   {
-    src: jetImages["global-7500-side.jpg"],
+    src: "/jets/global-7500-side.jpg",
     alt: "Bombardier Global 7500 side profile",
   },
   {
-    src: jetImages["global-7500-reference.jpg"],
+    src: "/jets/global-7500-reference.jpg",
     alt: "Bombardier Global 7500 over clouds",
   },
 ];
