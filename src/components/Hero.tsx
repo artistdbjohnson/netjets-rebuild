@@ -3,8 +3,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import { jetImages } from "@/lib/jet-images";
+import { heroVideoDataUrl } from "@/lib/hero-video";
 
-const VIDEO_URL = "/video/hero-global-7500.mp4";
+// Locked seamless looping hero video — data URL (no binary GitHub / external CDN required)
+const VIDEO_URL = heroVideoDataUrl;
 
 const NAV_ITEMS = [
   { label: "Programs", href: "/programs" },
@@ -14,21 +17,47 @@ const NAV_ITEMS = [
   { label: "Careers", href: "/careers" },
 ];
 
+// Mixed inventory slideshow — data URLs (no binary GitHub push required)
 const SLIDESHOW = [
-  { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour" },
-  { src: "/jets/global-7500-golden-side.jpg", alt: "Bombardier Global 7500 side profile over clouds" },
-  { src: "/jets/challenger-350.jpg", alt: "Bombardier Challenger 350" },
-  { src: "/jets/citation-latitude.jpg", alt: "Cessna Citation Latitude" },
-  { src: "/jets/phenom-300e.jpg", alt: "Embraer Phenom 300E" },
-  { src: "/jets/cabin-interior.jpg", alt: "NetJets cabin interior" },
-  { src: "/jets/global-7500-side.jpg", alt: "Bombardier Global 7500 side profile" },
-  { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds" },
+  {
+    src: jetImages["global-7500-golden-hour.jpg"],
+    alt: "Bombardier Global 7500 at golden hour",
+  },
+  {
+    src: jetImages["global-7500-golden-side.jpg"],
+    alt: "Bombardier Global 7500 side profile over clouds",
+  },
+  {
+    src: jetImages["challenger-350.jpg"],
+    alt: "Bombardier Challenger 350",
+  },
+  {
+    src: jetImages["citation-latitude.jpg"],
+    alt: "Cessna Citation Latitude",
+  },
+  {
+    src: jetImages["phenom-300e.jpg"],
+    alt: "Embraer Phenom 300E",
+  },
+  {
+    src: jetImages["cabin-interior.jpg"],
+    alt: "NetJets cabin interior",
+  },
+  {
+    src: jetImages["global-7500-side.jpg"],
+    alt: "Bombardier Global 7500 side profile",
+  },
+  {
+    src: jetImages["global-7500-reference.jpg"],
+    alt: "Bombardier Global 7500 over clouds",
+  },
 ];
 
 export default function Hero() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
 
+  // Soft cinematic cross-fade timing
   useEffect(() => {
     const timer = setInterval(() => {
       setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
@@ -38,6 +67,7 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-[#0a0a0b]">
+      {/* Continuous locked video bed – seamless loop */}
       <video
         src={VIDEO_URL}
         autoPlay
@@ -48,6 +78,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
+      {/* Mixed-inventory still slideshow layer (soft cross-fade over video) */}
       <div className="absolute inset-0">
         {SLIDESHOW.map((slide, i) => (
           <div
@@ -64,8 +95,10 @@ export default function Hero() {
         ))}
       </div>
 
+      {/* Top + mid legibility gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-transparent" />
 
+      {/* Bottom fade into page */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 md:h-48 lg:h-56 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/70 to-transparent"
         aria-hidden="true"
@@ -85,6 +118,7 @@ export default function Hero() {
               </a>
             ))}
           </nav>
+
           <button
             type="button"
             className="text-white md:hidden"
@@ -113,10 +147,12 @@ export default function Hero() {
         )}
       </header>
 
+      {/* Hero Content — Motionsites overlapping typography + exact NetJets language */}
       <div className="relative z-20 flex h-[calc(100%-88px)] flex-col items-center justify-center px-6 pb-16 text-center">
         <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/70">
           World’s Leading Private Jet Company
         </p>
+
         <h1 className="max-w-4xl">
           <span className="block text-5xl font-normal leading-none tracking-tighter text-white/80 md:text-7xl lg:text-8xl">
             Time is the
@@ -125,9 +161,11 @@ export default function Hero() {
             only luxury.
           </span>
         </h1>
+
         <p className="mt-6 max-w-2xl text-lg text-white/80 md:text-xl">
           The most advanced private jet fleet in the world. Access it on your terms.
         </p>
+
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
           <a
             href="#request"
