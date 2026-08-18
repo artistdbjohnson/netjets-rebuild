@@ -8,8 +8,8 @@ const FADE_MS = 2400;
 const FADE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 const SLIDESHOW = [
-  { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour" },
   { src: "/jets/global-7500-golden-side.jpg", alt: "Bombardier Global 7500 side profile over clouds" },
+  { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour" },
   { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds" },
   { src: "/jets/challenger-350.jpg", alt: "Bombardier Challenger 350" },
   { src: "/jets/citation-latitude.jpg", alt: "Cessna Citation Latitude" },
@@ -51,10 +51,16 @@ export default function FleetFlyover() {
 
   useEffect(() => {
     if (phase !== "stills") return;
-    const timer = setInterval(() => {
-      setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
-    }, 5500);
-    return () => clearInterval(timer);
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const hold = setTimeout(() => {
+      interval = setInterval(() => {
+        setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
+      }, 5500);
+    }, 8000);
+    return () => {
+      clearTimeout(hold);
+      if (interval) clearInterval(interval);
+    };
   }, [phase]);
 
   useEffect(() => {
@@ -96,7 +102,7 @@ export default function FleetFlyover() {
             onTimeUpdate={onTimeUpdate}
             onEnded={finishToStills}
             onError={failVideo}
-            className="absolute inset-0 z-10 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
             style={{
               opacity: videoOpacity,
               objectPosition: "center 40%",

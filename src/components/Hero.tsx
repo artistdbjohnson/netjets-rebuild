@@ -19,12 +19,12 @@ const NAV_ITEMS = [
 
 const SLIDESHOW = [
   {
-    src: "/jets/global-7500-golden-hour.jpg",
-    alt: "Bombardier Global 7500 at golden hour",
-  },
-  {
     src: "/jets/global-7500-golden-side.jpg",
     alt: "Bombardier Global 7500 side profile over clouds",
+  },
+  {
+    src: "/jets/global-7500-golden-hour.jpg",
+    alt: "Bombardier Global 7500 at golden hour",
   },
   {
     src: "/jets/global-7500-reference.jpg",
@@ -67,10 +67,16 @@ export default function Hero() {
 
   useEffect(() => {
     if (phase !== "stills") return;
-    const timer = setInterval(() => {
-      setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
-    }, 5500);
-    return () => clearInterval(timer);
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const hold = setTimeout(() => {
+      interval = setInterval(() => {
+        setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
+      }, 5500);
+    }, 8000);
+    return () => {
+      clearTimeout(hold);
+      if (interval) clearInterval(interval);
+    };
   }, [phase]);
 
   useEffect(() => {
