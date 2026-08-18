@@ -24,11 +24,6 @@ const SLIDESHOW = [
     pos: "center 22%",
   },
   {
-    src: "/jets/global-7500-golden-hour.jpg",
-    alt: "Bombardier Global 7500 at golden hour",
-    pos: "center 12%",
-  },
-  {
     src: "/jets/global-7500-reference.jpg",
     alt: "Bombardier Global 7500 over clouds",
     pos: "20% 22%",
