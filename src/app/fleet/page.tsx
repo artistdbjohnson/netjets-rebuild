@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import OrbitViewer from "@/components/fleet/OrbitViewer";
+import ImagineFlyover from "@/components/fleet/ImagineFlyover";
 
 const fleet = [
   {
@@ -132,7 +132,7 @@ export default function FleetPage() {
         </div>
       </section>
 
-      <OrbitViewer />
+      <ImagineFlyover />
 
       <Footer />
     </main>
