@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
-// Public static assets (normal paths — no data-URL modules)
 const VIDEO_URL = "/video/imagine-flyover.mp4";
+const HOLD_S = 2.8;
+const FADE_MS = 2400;
+const FADE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 const NAV_ITEMS = [
   { label: "Programs", href: "/programs" },
@@ -15,7 +17,6 @@ const NAV_ITEMS = [
   { label: "Careers", href: "/careers" },
 ];
 
-// Mixed inventory slideshow — public static paths
 const SLIDESHOW = [
   {
     src: "/jets/global-7500-golden-hour.jpg",
@@ -51,56 +52,87 @@ const SLIDESHOW = [
   },
 ];
 
+type Phase = "clip" | "dissolve" | "stills";
+
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
-  const [videoDone, setVideoDone] = useState(false);
+  const [phase, setPhase] = useState<Phase>("clip");
 
-  // Stills only after the one-shot flyover ends (or errors)
   useEffect(() => {
-    if (!videoDone) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) setPhase("stills");
+  }, []);
+
+  useEffect(() => {
+    if (phase !== "stills") return;
     const timer = setInterval(() => {
       setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
     }, 5500);
     return () => clearInterval(timer);
-  }, [videoDone]);
+  }, [phase]);
+
+  useEffect(() => {
+    if (phase !== "dissolve") return;
+    const timer = setTimeout(() => setPhase("stills"), FADE_MS);
+    return () => clearTimeout(timer);
+  }, [phase]);
+
+  const startDissolve = () => {
+    setPhase((prev) => (prev === "clip" ? "dissolve" : prev));
+  };
+
+  const finishToStills = () => setPhase("stills");
+
+  const onTimeUpdate = () => {
+    const el = videoRef.current;
+    if (!el) return;
+    if (el.currentTime >= HOLD_S) startDissolve();
+  };
+
+  const showStills = phase !== "clip";
+  const videoOpacity = phase === "stills" ? 0 : 1;
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-[#0a0a0b]">
-      {/* One-shot Imagine flyover, then fade to stills */}
       <video
+        ref={videoRef}
         src={VIDEO_URL}
         autoPlay
         muted
         playsInline
-        onEnded={() => setVideoDone(true)}
-        onError={() => setVideoDone(true)}
-        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms] ease-in-out"
-        style={{ opacity: videoDone ? 0 : 1, objectPosition: "center 40%" }}
+        onTimeUpdate={onTimeUpdate}
+        onEnded={finishToStills}
+        onError={finishToStills}
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{
+          opacity: videoOpacity,
+          objectPosition: "center 40%",
+          transition: `opacity ${FADE_MS}ms ${FADE_EASE}`,
+        }}
         aria-hidden="true"
       />
 
-      {/* Mixed-inventory still slideshow — full opacity after flyover */}
       <div className="absolute inset-0">
         {SLIDESHOW.map((slide, i) => (
           <div
             key={slide.src}
-            className="absolute inset-0 transition-opacity duration-[1800ms] ease-in-out"
+            className="absolute inset-0"
             style={{
-              opacity: videoDone && i === slideIndex ? 1 : 0,
+              opacity: showStills && i === slideIndex ? 1 : 0,
               backgroundImage: `url(${slide.src})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              transition: `opacity ${FADE_MS}ms ${FADE_EASE}`,
             }}
-            aria-hidden={!(videoDone && i === slideIndex)}
+            aria-hidden={!(showStills && i === slideIndex)}
           />
         ))}
       </div>
 
-      {/* Top + mid legibility gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-transparent" />
 
-      {/* Bottom fade into page */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 md:h-48 lg:h-56 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/70 to-transparent"
         aria-hidden="true"
@@ -149,10 +181,9 @@ export default function Hero() {
         )}
       </header>
 
-      {/* Hero Content — Motionsites overlapping typography + exact NetJets language */}
       <div className="relative z-20 flex h-[calc(100%-88px)] flex-col items-center justify-center px-6 pb-16 text-center">
         <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/70">
-          World’s Leading Private Jet Company
+          World{"'"}s Leading Private Jet Company
         </p>
 
         <h1 className="max-w-4xl">
