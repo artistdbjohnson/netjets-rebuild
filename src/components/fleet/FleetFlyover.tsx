@@ -8,9 +8,9 @@ const FADE_MS = 2400;
 const FADE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 const SLIDESHOW = [
-  { src: "/jets/global-7500-golden-side.jpg", alt: "Bombardier Global 7500 side profile over clouds", pos: "center 40%" },
-  { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour", pos: "center 40%" },
-  { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds", pos: "20% 40%" },
+  { src: "/jets/global-7500-golden-side.jpg", alt: "Bombardier Global 7500 side profile over clouds", pos: "center 22%" },
+  { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour", pos: "center 12%" },
+  { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds", pos: "20% 22%" },
 ] as const;
 
 type Phase = "clip" | "dissolve" | "stills";

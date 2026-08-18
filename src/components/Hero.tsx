@@ -21,17 +21,17 @@ const SLIDESHOW = [
   {
     src: "/jets/global-7500-golden-side.jpg",
     alt: "Bombardier Global 7500 side profile over clouds",
-    pos: "center 40%",
+    pos: "center 22%",
   },
   {
     src: "/jets/global-7500-golden-hour.jpg",
     alt: "Bombardier Global 7500 at golden hour",
-    pos: "center 40%",
+    pos: "center 12%",
   },
   {
     src: "/jets/global-7500-reference.jpg",
     alt: "Bombardier Global 7500 over clouds",
-    pos: "20% 40%",
+    pos: "20% 22%",
   },
 ];
 
