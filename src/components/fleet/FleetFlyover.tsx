@@ -51,7 +51,7 @@ export default function FleetFlyover() {
 
   return (
     <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0b]">
-      <div className="relative aspect-[16/10] w-full md:aspect-[21/10]">
+      <div className="relative aspect-[3/2] w-full">
         {hasVideo && (
           <video
             src={FLYOVER_URL}

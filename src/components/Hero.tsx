@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
 // Public static assets (normal paths — no data-URL modules)
-const VIDEO_URL = "/video/hero-global-7500.mp4";
+const VIDEO_URL = "/video/imagine-flyover.mp4";
 
 const NAV_ITEMS = [
   { label: "Programs", href: "/programs" },
@@ -54,41 +54,45 @@ const SLIDESHOW = [
 export default function Hero() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
+  const [videoDone, setVideoDone] = useState(false);
 
-  // Soft cinematic cross-fade timing
+  // Stills only after the one-shot flyover ends (or errors)
   useEffect(() => {
+    if (!videoDone) return;
     const timer = setInterval(() => {
       setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
     }, 5500);
     return () => clearInterval(timer);
-  }, []);
+  }, [videoDone]);
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-[#0a0a0b]">
-      {/* Continuous locked video bed – seamless loop */}
+      {/* One-shot Imagine flyover, then fade to stills */}
       <video
         src={VIDEO_URL}
         autoPlay
         muted
-        loop
         playsInline
-        className="absolute inset-0 h-full w-full object-cover"
+        onEnded={() => setVideoDone(true)}
+        onError={() => setVideoDone(true)}
+        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms] ease-in-out"
+        style={{ opacity: videoDone ? 0 : 1 }}
         aria-hidden="true"
       />
 
-      {/* Mixed-inventory still slideshow layer (soft cross-fade over video) */}
+      {/* Mixed-inventory still slideshow — full opacity after flyover */}
       <div className="absolute inset-0">
         {SLIDESHOW.map((slide, i) => (
           <div
             key={slide.src}
             className="absolute inset-0 transition-opacity duration-[1800ms] ease-in-out"
             style={{
-              opacity: i === slideIndex ? 0.45 : 0,
+              opacity: videoDone && i === slideIndex ? 1 : 0,
               backgroundImage: `url(${slide.src})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-            aria-hidden={i !== slideIndex}
+            aria-hidden={!(videoDone && i === slideIndex)}
           />
         ))}
       </div>
