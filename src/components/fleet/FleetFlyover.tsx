@@ -93,12 +93,18 @@ export default function FleetFlyover() {
   return (
     <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0b]">
       <div className="relative aspect-[3/2] w-full">
+        <img
+          src="/jets/global-7500-golden-side.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ objectPosition: "center 40%" }}
+        />
         {hasVideo && (
           <video
             ref={videoRef}
             src={FLYOVER_URL}
             poster="/jets/global-7500-golden-side.jpg"
-        autoPlay
+            autoPlay
             muted
             playsInline
             onLoadedMetadata={() => {

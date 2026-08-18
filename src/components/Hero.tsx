@@ -181,25 +181,25 @@ export default function Hero() {
         )}
       </header>
 
-      <div className="relative z-20 flex h-[calc(100%-88px)] flex-col items-center justify-start px-6 pt-10 md:pt-14 lg:pt-16 text-center">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/70">
+      <div className="relative z-20 mx-auto max-w-4xl px-6 pt-4 md:pt-6 text-center">
+        <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-white/70">
           World{"'"}s Leading Private Jet Company
         </p>
 
         <h1 className="max-w-4xl">
-          <span className="block text-5xl font-normal leading-none tracking-tighter text-white/80 md:text-7xl lg:text-8xl">
+          <span className="block text-4xl font-normal leading-none tracking-tighter text-white/80 md:text-6xl lg:text-7xl">
             Time is the
           </span>
-          <span className="block -mt-3 text-5xl font-normal leading-none tracking-tighter text-white md:text-7xl lg:text-8xl">
+          <span className="block -mt-2 text-4xl font-normal leading-none tracking-tighter text-white md:text-6xl lg:text-7xl">
             only luxury.
           </span>
         </h1>
 
-        <p className="mt-6 max-w-2xl text-lg text-white/80 md:text-xl">
+        <p className="mx-auto mt-3 max-w-2xl text-base text-white/80 md:text-lg">
           The most advanced private jet fleet in the world. Access it on your terms.
         </p>
 
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="#request"
             className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-[#202124] transition-colors hover:bg-white/90"
