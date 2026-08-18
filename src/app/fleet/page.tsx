@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import ImagineFlyover from "@/components/fleet/ImagineFlyover";
+import FleetFlyover from "@/components/fleet/FleetFlyover";
 
 const fleet = [
   {
@@ -91,6 +91,9 @@ export default function FleetPage() {
 
       <section className="pb-24 md:pb-32">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="mb-8 md:mb-10">
+            <FleetFlyover />
+          </div>
           <motion.div
             className="grid gap-8 md:grid-cols-2"
             variants={container}
@@ -131,8 +134,6 @@ export default function FleetPage() {
           </motion.div>
         </div>
       </section>
-
-      <ImagineFlyover />
 
       <Footer />
     </main>
