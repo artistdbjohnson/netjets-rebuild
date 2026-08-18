@@ -26,7 +26,7 @@ const SLIDESHOW = [
   {
     src: "/jets/global-7500-reference.jpg",
     alt: "Bombardier Global 7500 over clouds",
-    pos: "20% 22%",
+    pos: "20% 10%",
   },
 ];
 
