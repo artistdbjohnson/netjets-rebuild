@@ -123,7 +123,7 @@ export default function Hero() {
               opacity: showStills && i === slideIndex ? 1 : 0,
               backgroundImage: `url(${slide.src})`,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "center 40%",
               transition: `opacity ${FADE_MS}ms ${FADE_EASE}`,
             }}
             aria-hidden={!(showStills && i === slideIndex)}
