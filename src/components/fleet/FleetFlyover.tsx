@@ -8,14 +8,14 @@ const FADE_MS = 2400;
 const FADE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 const SLIDESHOW = [
-  { src: "/jets/global-7500-golden-side.jpg", alt: "Bombardier Global 7500 side profile over clouds" },
-  { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour" },
-  { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds" },
-  { src: "/jets/challenger-350.jpg", alt: "Bombardier Challenger 350" },
-  { src: "/jets/citation-latitude.jpg", alt: "Cessna Citation Latitude" },
-  { src: "/jets/phenom-300e.jpg", alt: "Embraer Phenom 300E" },
-  { src: "/jets/cabin-interior.jpg", alt: "NetJets cabin interior" },
-  { src: "/jets/global-7500-side.jpg", alt: "Bombardier Global 7500 side profile" },
+  { src: "/jets/global-7500-golden-side.jpg", alt: "Bombardier Global 7500 side profile over clouds", pos: "center 40%" },
+  { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour", pos: "center 40%" },
+  { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds", pos: "20% 40%" },
+  { src: "/jets/challenger-350.jpg", alt: "Bombardier Challenger 350", pos: "center 40%" },
+  { src: "/jets/citation-latitude.jpg", alt: "Cessna Citation Latitude", pos: "center 40%" },
+  { src: "/jets/phenom-300e.jpg", alt: "Embraer Phenom 300E", pos: "center 40%" },
+  { src: "/jets/cabin-interior.jpg", alt: "NetJets cabin interior", pos: "center 40%" },
+  { src: "/jets/global-7500-side.jpg", alt: "Bombardier Global 7500 side profile", pos: "center 40%" },
 ] as const;
 
 type Phase = "clip" | "dissolve" | "stills";
@@ -127,7 +127,7 @@ export default function FleetFlyover() {
               opacity: showStills && i === slideIndex ? 1 : 0,
               backgroundImage: `url(${slide.src})`,
               backgroundSize: "cover",
-              backgroundPosition: "center 40%",
+              backgroundPosition: slide.pos,
               transition: `opacity ${FADE_MS}ms ${FADE_EASE}`,
             }}
             aria-hidden={!(showStills && i === slideIndex)}
