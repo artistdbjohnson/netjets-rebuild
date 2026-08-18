@@ -66,7 +66,7 @@ export default function FleetPage() {
     <main className="min-h-screen bg-[#0a0a0b]">
       <Nav variant="solid" />
 
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24">
+      <section className="scroll-mt-20 pt-32 pb-8 md:scroll-mt-24 md:pt-40 md:pb-10">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -89,11 +89,17 @@ export default function FleetPage() {
         </div>
       </section>
 
+      <section
+        id="fleet-flyover"
+        className="scroll-mt-20 pb-10 md:scroll-mt-24 md:pb-12"
+      >
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <FleetFlyover />
+        </div>
+      </section>
+
       <section className="pb-24 md:pb-32">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="mb-8 md:mb-10">
-            <FleetFlyover />
-          </div>
           <motion.div
             className="grid gap-8 md:grid-cols-2"
             variants={container}
