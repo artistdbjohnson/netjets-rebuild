@@ -33,31 +33,6 @@ const SLIDESHOW = [
     alt: "Bombardier Global 7500 over clouds",
     pos: "20% 40%",
   },
-  {
-    src: "/jets/challenger-350.jpg",
-    alt: "Bombardier Challenger 350",
-    pos: "center 40%",
-  },
-  {
-    src: "/jets/citation-latitude.jpg",
-    alt: "Cessna Citation Latitude",
-    pos: "center 40%",
-  },
-  {
-    src: "/jets/phenom-300e.jpg",
-    alt: "Embraer Phenom 300E",
-    pos: "center 40%",
-  },
-  {
-    src: "/jets/cabin-interior.jpg",
-    alt: "NetJets cabin interior",
-    pos: "center 40%",
-  },
-  {
-    src: "/jets/global-7500-side.jpg",
-    alt: "Bombardier Global 7500 side profile",
-    pos: "center 40%",
-  },
 ];
 
 type Phase = "clip" | "dissolve" | "stills";
@@ -66,6 +41,7 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
+  const [baseIndex, setBaseIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("clip");
 
   useEffect(() => {
@@ -80,10 +56,15 @@ export default function Hero() {
 
   useEffect(() => {
     if (phase !== "stills") return;
-    const delay = slideIndex < 3 ? 8000 : 5500;
     const timer = setTimeout(() => {
       setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
-    }, delay);
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, [phase, slideIndex]);
+
+  useEffect(() => {
+    if (phase === "clip") return;
+    const timer = setTimeout(() => setBaseIndex(slideIndex), FADE_MS);
     return () => clearTimeout(timer);
   }, [phase, slideIndex]);
 
@@ -138,11 +119,12 @@ export default function Hero() {
             key={slide.src}
             className="absolute inset-0"
             style={{
-              opacity: showStills && i === slideIndex ? 1 : 0,
+              opacity: showStills && (i === slideIndex || i === baseIndex) ? 1 : 0,
+              zIndex: i === slideIndex ? 2 : i === baseIndex ? 1 : 0,
               backgroundImage: `url(${slide.src})`,
               backgroundSize: "cover",
               backgroundPosition: slide.pos,
-              transition: `opacity ${FADE_MS}ms ${FADE_EASE}`,
+              transition: i === slideIndex ? `opacity ${FADE_MS}ms ${FADE_EASE}` : "none",
             }}
             aria-hidden={!(showStills && i === slideIndex)}
           />
@@ -199,7 +181,7 @@ export default function Hero() {
         )}
       </header>
 
-      <div className="relative z-20 flex h-[calc(100%-88px)] flex-col items-center justify-center px-6 pb-16 text-center">
+      <div className="relative z-20 flex h-[calc(100%-88px)] flex-col items-center justify-start px-6 pt-10 md:pt-14 lg:pt-16 text-center">
         <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/70">
           World{"'"}s Leading Private Jet Company
         </p>

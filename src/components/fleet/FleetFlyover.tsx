@@ -11,11 +11,6 @@ const SLIDESHOW = [
   { src: "/jets/global-7500-golden-side.jpg", alt: "Bombardier Global 7500 side profile over clouds", pos: "center 40%" },
   { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour", pos: "center 40%" },
   { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds", pos: "20% 40%" },
-  { src: "/jets/challenger-350.jpg", alt: "Bombardier Challenger 350", pos: "center 40%" },
-  { src: "/jets/citation-latitude.jpg", alt: "Cessna Citation Latitude", pos: "center 40%" },
-  { src: "/jets/phenom-300e.jpg", alt: "Embraer Phenom 300E", pos: "center 40%" },
-  { src: "/jets/cabin-interior.jpg", alt: "NetJets cabin interior", pos: "center 40%" },
-  { src: "/jets/global-7500-side.jpg", alt: "Bombardier Global 7500 side profile", pos: "center 40%" },
 ] as const;
 
 type Phase = "clip" | "dissolve" | "stills";
@@ -25,6 +20,7 @@ export default function FleetFlyover() {
   const [hasVideo, setHasVideo] = useState(false);
   const [phase, setPhase] = useState<Phase>("clip");
   const [slideIndex, setSlideIndex] = useState(0);
+  const [baseIndex, setBaseIndex] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -56,10 +52,15 @@ export default function FleetFlyover() {
 
   useEffect(() => {
     if (phase !== "stills") return;
-    const delay = slideIndex < 3 ? 8000 : 5500;
     const timer = setTimeout(() => {
       setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
-    }, delay);
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, [phase, slideIndex]);
+
+  useEffect(() => {
+    if (phase === "clip") return;
+    const timer = setTimeout(() => setBaseIndex(slideIndex), FADE_MS);
     return () => clearTimeout(timer);
   }, [phase, slideIndex]);
 
@@ -120,11 +121,12 @@ export default function FleetFlyover() {
             key={slide.src}
             className="absolute inset-0"
             style={{
-              opacity: showStills && i === slideIndex ? 1 : 0,
+              opacity: showStills && (i === slideIndex || i === baseIndex) ? 1 : 0,
+              zIndex: i === slideIndex ? 2 : i === baseIndex ? 1 : 0,
               backgroundImage: `url(${slide.src})`,
               backgroundSize: "cover",
               backgroundPosition: slide.pos,
-              transition: `opacity ${FADE_MS}ms ${FADE_EASE}`,
+              transition: i === slideIndex ? `opacity ${FADE_MS}ms ${FADE_EASE}` : "none",
             }}
             aria-hidden={!(showStills && i === slideIndex)}
             role="img"
