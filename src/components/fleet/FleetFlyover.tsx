@@ -7,12 +7,12 @@ const FLYOVER_URL = "/video/imagine-flyover.mp4";
 const SLIDESHOW = [
   { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour" },
   { src: "/jets/global-7500-golden-side.jpg", alt: "Bombardier Global 7500 side profile over clouds" },
+  { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds" },
   { src: "/jets/challenger-350.jpg", alt: "Bombardier Challenger 350" },
   { src: "/jets/citation-latitude.jpg", alt: "Cessna Citation Latitude" },
   { src: "/jets/phenom-300e.jpg", alt: "Embraer Phenom 300E" },
   { src: "/jets/cabin-interior.jpg", alt: "NetJets cabin interior" },
   { src: "/jets/global-7500-side.jpg", alt: "Bombardier Global 7500 side profile" },
-  { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds" },
 ] as const;
 
 export default function FleetFlyover() {
@@ -61,7 +61,7 @@ export default function FleetFlyover() {
             onEnded={() => setVideoDone(true)}
             onError={failVideo}
             className="absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-[1800ms] ease-in-out"
-            style={{ opacity: videoDone ? 0 : 1 }}
+            style={{ opacity: videoDone ? 0 : 1, objectPosition: "center 40%" }}
             aria-hidden="true"
           />
         )}

@@ -26,6 +26,10 @@ const SLIDESHOW = [
     alt: "Bombardier Global 7500 side profile over clouds",
   },
   {
+    src: "/jets/global-7500-reference.jpg",
+    alt: "Bombardier Global 7500 over clouds",
+  },
+  {
     src: "/jets/challenger-350.jpg",
     alt: "Bombardier Challenger 350",
   },
@@ -44,10 +48,6 @@ const SLIDESHOW = [
   {
     src: "/jets/global-7500-side.jpg",
     alt: "Bombardier Global 7500 side profile",
-  },
-  {
-    src: "/jets/global-7500-reference.jpg",
-    alt: "Bombardier Global 7500 over clouds",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function Hero() {
         onEnded={() => setVideoDone(true)}
         onError={() => setVideoDone(true)}
         className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms] ease-in-out"
-        style={{ opacity: videoDone ? 0 : 1 }}
+        style={{ opacity: videoDone ? 0 : 1, objectPosition: "center 40%" }}
         aria-hidden="true"
       />
 
