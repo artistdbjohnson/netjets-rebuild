@@ -66,6 +66,11 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
+    const el = videoRef.current;
+    if (el) el.currentTime = 0;
+  }, []);
+
+  useEffect(() => {
     if (phase !== "stills") return;
     let interval: ReturnType<typeof setInterval> | undefined;
     const hold = setTimeout(() => {
@@ -108,6 +113,9 @@ export default function Hero() {
         autoPlay
         muted
         playsInline
+        onLoadedMetadata={() => {
+          if (videoRef.current) videoRef.current.currentTime = 0;
+        }}
         onTimeUpdate={onTimeUpdate}
         onEnded={finishToStills}
         onError={finishToStills}
