@@ -195,24 +195,24 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p className="mx-auto mt-3 max-w-2xl text-base text-white/80 md:text-lg">
+        <p className="mx-auto mt-1 max-w-2xl text-base text-white/80 md:text-lg">
           The most advanced private jet fleet in the world. Access it on your terms.
         </p>
+      </div>
 
-        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="#request"
-            className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-[#202124] transition-colors hover:bg-white/90"
-          >
-            Request Information
-          </a>
-          <a
-            href="tel:+18773565823"
-            className="rounded-full border border-white/40 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/20"
-          >
-            Call Us
-          </a>
-        </div>
+      <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center justify-center gap-3 px-6 pb-10 sm:flex-row md:pb-14">
+        <a
+          href="#request"
+          className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-[#202124] transition-colors hover:bg-white/90"
+        >
+          Request Information
+        </a>
+        <a
+          href="tel:+18773565823"
+          className="rounded-full border border-white/40 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/20"
+        >
+          Call Us
+        </a>
       </div>
     </section>
   );
