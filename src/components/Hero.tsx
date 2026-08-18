@@ -80,17 +80,12 @@ export default function Hero() {
 
   useEffect(() => {
     if (phase !== "stills") return;
-    let interval: ReturnType<typeof setInterval> | undefined;
-    const hold = setTimeout(() => {
-      interval = setInterval(() => {
-        setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
-      }, 5500);
-    }, 8000);
-    return () => {
-      clearTimeout(hold);
-      if (interval) clearInterval(interval);
-    };
-  }, [phase]);
+    const delay = slideIndex < 3 ? 8000 : 5500;
+    const timer = setTimeout(() => {
+      setSlideIndex((prev) => (prev + 1) % SLIDESHOW.length);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [phase, slideIndex]);
 
   useEffect(() => {
     if (phase !== "dissolve") return;
@@ -118,6 +113,7 @@ export default function Hero() {
       <video
         ref={videoRef}
         src={VIDEO_URL}
+        poster="/jets/global-7500-golden-side.jpg"
         autoPlay
         muted
         playsInline
