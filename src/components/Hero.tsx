@@ -6,7 +6,9 @@ import Logo from "./Logo";
 import { primaryNav } from "@/content/nav";
 
 const VIDEO_URL = "/video/imagine-flyover.mp4";
+const VIDEO_MOBILE_URL = "/video/imagine-flyover-9x16.mp4";
 const POSTER = "/video/imagine-flyover-poster.jpg";
+const POSTER_MOBILE = "/video/imagine-flyover-9x16-poster.jpg";
 
 export default function Hero() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -39,6 +41,19 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden bg-[#0a0a0b]">
+      {/* Mobile: Lux 9:16 Imagine — full Global 7500 nose-to-tail + vertical clouds */}
+      <video
+        src={VIDEO_MOBILE_URL}
+        poster={POSTER_MOBILE}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 h-full w-full object-cover object-center sm:hidden"
+        aria-hidden="true"
+      />
+      {/* Desktop / tablet: landscape Imagine flyover */}
       <video
         src={VIDEO_URL}
         poster={POSTER}
@@ -47,7 +62,7 @@ export default function Hero() {
         loop
         playsInline
         preload="metadata"
-        className="absolute inset-0 h-full w-full object-cover object-[center_42%]"
+        className="absolute inset-0 hidden h-full w-full object-cover object-[center_42%] sm:block"
         aria-hidden="true"
       />
 
