@@ -1,30 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const jets = [
-  {
-    name: "Bombardier Global 7500/8000",
-    category: "Ultra Long-Range",
-    image: "/jets/global-7500-golden-hour.jpg",
-  },
-  {
-    name: "Bombardier Challenger 350/3500",
-    category: "Super-Midsize",
-    image: "/jets/challenger-350.jpg",
-  },
-  {
-    name: "Cessna Citation Latitude",
-    category: "Midsize",
-    image: "/jets/citation-latitude.jpg",
-  },
-  {
-    name: "Embraer Phenom 300/E",
-    category: "Light Jet",
-    description: "NetJets’ legendary elegance and speed to virtually any airport or fixed-base operator (FBO).",
-    image: "/jets/phenom-300e.jpg",
-  },
-];
+import FleetFlipCard from "@/components/fleet/FleetFlipCard";
+import { featuredFleet } from "@/data/fleet";
 
 const container = {
   hidden: { opacity: 0 },
@@ -77,34 +55,15 @@ export default function FleetPreview() {
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
         >
-          {jets.map((jet) => (
-            <motion.a
-              key={jet.name}
-              href="/fleet"
-              variants={item}
-              className="group relative liquid-glass rounded-2xl transition-all"
-            >
-              <div className="aspect-[4/3] overflow-hidden bg-[#0a0a0b]">
-                <img
-                  src={jet.image}
-                  alt={jet.name}
-                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
-                />
-              </div>
-              <div className="relative z-10 p-6">
-                <p className="mb-1 text-xs font-medium font-body uppercase tracking-wider text-white/40">
-                  {jet.category}
-                </p>
-                <h3 className="mb-2 font-heading italic text-xl tracking-tight text-white">
-                  {jet.name}
-                </h3>
-                {"description" in jet && jet.description ? (
-                  <p className="text-sm font-body font-light leading-relaxed text-white/60">
-                    {jet.description}
-                  </p>
-                ) : null}
-              </div>
-            </motion.a>
+          {featuredFleet.map((jet) => (
+            <motion.div key={jet.slug} variants={item}>
+              <FleetFlipCard
+                jet={jet}
+                compact
+                aspectClassName="aspect-[4/3]"
+                titleHref="/fleet"
+              />
+            </motion.div>
           ))}
         </motion.div>
       </div>
