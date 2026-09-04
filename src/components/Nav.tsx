@@ -82,8 +82,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
         </nav>
 
         <div className="flex items-center gap-0.5">
-          <ThemeToggle className="hidden lg:inline-flex" />
-          <ThemeToggle className="lg:hidden" />
+          <ThemeToggle />
         <button
           ref={buttonRef}
           type="button"
