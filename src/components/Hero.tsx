@@ -21,7 +21,7 @@ const SLIDESHOW = [
   {
     src: "/jets/global-7500-golden-side.jpg",
     alt: "Bombardier Global 7500 side profile over clouds",
-    pos: "center 22%",
+    pos: "center 40%",
   },
   {
     src: "/jets/global-7500-reference.jpg",
@@ -42,11 +42,6 @@ export default function Hero() {
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mq.matches) setPhase("stills");
-  }, []);
-
-  useEffect(() => {
-    const el = videoRef.current;
-    if (el) el.currentTime = 0;
   }, []);
 
   useEffect(() => {
@@ -75,6 +70,12 @@ export default function Hero() {
 
   const finishToStills = () => setPhase("stills");
 
+  const onVideoError = (event: React.SyntheticEvent<HTMLVideoElement>) => {
+    const mediaError = event.currentTarget.error;
+    if (!mediaError || mediaError.code === MediaError.MEDIA_ERR_ABORTED) return;
+    finishToStills();
+  };
+
   const onTimeUpdate = () => {
     const el = videoRef.current;
     if (!el) return;
@@ -89,17 +90,14 @@ export default function Hero() {
       <video
         ref={videoRef}
         src={VIDEO_URL}
-        poster="/jets/global-7500-golden-side.jpg"
+        poster="/video/imagine-flyover-poster.jpg"
         autoPlay
         muted
         playsInline
-        preload="auto"
-        onLoadedMetadata={() => {
-          if (videoRef.current) videoRef.current.currentTime = 0;
-        }}
+        preload="metadata"
         onTimeUpdate={onTimeUpdate}
         onEnded={finishToStills}
-        onError={finishToStills}
+        onError={onVideoError}
         className="absolute inset-0 h-full w-full object-cover"
         style={{
           opacity: videoOpacity,
