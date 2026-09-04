@@ -47,8 +47,7 @@ export default function Hero() {
         loop
         playsInline
         preload="metadata"
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: "center 40%" }}
+        className="absolute inset-0 h-full w-full object-cover object-[center_40%] max-sm:object-contain max-sm:object-center"
         aria-hidden="true"
       />
 
