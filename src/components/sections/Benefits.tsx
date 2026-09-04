@@ -7,25 +7,25 @@ const benefits = [
   {
     title: "COST TRANSPARENCY, INVESTMENT CONFIDENCE",
     description: "Explore premium programs with predictable pricing",
-    href: "/en-us/private-jet-cost-pricing",
+    href: "/rates",
     icon: DollarSign,
   },
   {
     title: "80+ NEW AIRCRAFT ARRIVING IN 2026",
     description: "Tour the growing, global NetJets fleet",
-    href: "/en-us/compare-luxury-private-jets",
+    href: "/fleet",
     icon: Plane,
   },
   {
     title: "CORPORATE TRAVEL, PERFECTED",
     description: "Enhance your competitive edge",
-    href: "/en-us/business-jet-travel",
+    href: "/private-aviation-solutions",
     icon: Briefcase,
   },
   {
     title: "NETJETS VS. OTHERS",
     description: "See why NetJets is the only choice in private travel",
-    href: "/en-us/private-aviation-services",
+    href: "/programs",
     icon: Scale,
   },
 ];
