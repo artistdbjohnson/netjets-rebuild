@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 import { primaryNav } from "@/content/nav";
@@ -10,18 +10,30 @@ const POSTER = "/video/imagine-flyover-poster.jpg";
 
 export default function Hero() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!mobileOpen) return;
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setMobileOpen(false);
     };
+    const onPointer = (e: MouseEvent | TouchEvent) => {
+      const t = e.target as Node;
+      if (panelRef.current?.contains(t)) return;
+      if (buttonRef.current?.contains(t)) return;
+      setMobileOpen(false);
+    };
     window.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("touchstart", onPointer);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("touchstart", onPointer);
+      document.body.style.overflow = prev;
     };
   }, [mobileOpen]);
 
@@ -34,7 +46,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         className="absolute inset-0 h-full w-full object-cover"
         style={{ objectPosition: "center 40%" }}
         aria-hidden="true"
@@ -71,8 +83,9 @@ export default function Hero() {
           </nav>
 
           <button
+            ref={buttonRef}
             type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-full liquid-glass text-white lg:hidden"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full liquid-glass text-white lg:hidden"
             onClick={() => setMobileOpen((o) => !o)}
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -86,17 +99,24 @@ export default function Hero() {
         <>
           <button
             type="button"
-            className="fixed inset-0 z-40 bg-black/55 lg:hidden"
+            className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm lg:hidden"
             aria-label="Close menu"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="fixed inset-x-4 top-[4.5rem] z-50 liquid-glass rounded-2xl p-6 shadow-2xl lg:hidden">
+          <div
+            ref={panelRef}
+            className="fixed inset-x-0 bottom-0 z-50 max-h-[85svh] overflow-y-auto rounded-t-3xl bg-[#0a0a0b]/92 liquid-glass-strong px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation"
+          >
+            <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-white/30" aria-hidden="true" />
             <nav className="relative z-10 flex flex-col gap-1">
               {primaryNav.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="rounded-xl px-3 py-3.5 text-lg font-medium font-body text-white"
+                  className="flex min-h-12 items-center rounded-xl px-3 text-lg font-medium font-body text-white"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -104,14 +124,14 @@ export default function Hero() {
               ))}
               <a
                 href="/request"
-                className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-5 py-3 text-base font-semibold font-body text-black"
+                className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-white px-5 py-3 text-base font-semibold font-body text-black"
                 onClick={() => setMobileOpen(false)}
               >
                 Request Information
               </a>
               <a
                 href="tel:+18773565823"
-                className="mt-2 inline-flex min-h-12 items-center justify-center rounded-full liquid-glass-strong px-5 py-3 text-base font-semibold font-body text-white"
+                className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-full liquid-glass-strong px-5 py-3 text-base font-semibold font-body text-white"
                 onClick={() => setMobileOpen(false)}
               >
                 Call Us
@@ -123,16 +143,16 @@ export default function Hero() {
 
       <div className="relative z-20 mx-auto flex max-w-4xl flex-col px-4 pt-10 text-center sm:px-6 sm:pt-12 md:pt-14">
         <div
-          className="pointer-events-none absolute left-1/2 top-8 h-[70%] w-[min(100%,42rem)] -translate-x-1/2 rounded-[40%] bg-black/35 blur-3xl"
+          className="pointer-events-none absolute left-1/2 top-8 h-[75%] w-[min(100%,42rem)] -translate-x-1/2 rounded-[40%] bg-black/55 blur-3xl"
           aria-hidden="true"
         />
         <div className="relative">
-          <h1 className="mx-auto max-w-[20ch] font-heading italic text-white leading-[0.92] tracking-tight sm:max-w-4xl md:tracking-[-0.04em]">
+          <h1 className="mx-auto w-full max-w-xl font-heading italic text-white leading-[0.92] tracking-tight sm:max-w-4xl md:tracking-[-0.04em]">
             <span className="block text-[1.85rem] text-white sm:text-4xl md:text-5xl lg:text-[4.25rem]">
               WHICH PROGRAM IS BEST FOR YOU?
             </span>
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-[0.7rem] font-body font-light uppercase leading-snug tracking-[0.06em] text-white/85 sm:mt-5 sm:text-sm md:text-base lg:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-sm font-body font-light uppercase leading-snug tracking-[0.06em] text-white sm:mt-5 md:text-base lg:text-lg">
             COMPARE OUR SHARE AND CARD TO FIND YOUR IDEAL SOLUTION
           </p>
         </div>
@@ -141,13 +161,13 @@ export default function Hero() {
       <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-stretch gap-3 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:items-center sm:px-6 sm:pb-10 sm:flex-row sm:justify-center md:pb-14">
         <a
           href="/request"
-          className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-semibold font-body text-black transition-colors hover:bg-white/90"
+          className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-semibold font-body text-black transition-colors hover:bg-white/90 sm:w-auto"
         >
           Request Information
         </a>
         <a
           href="tel:+18773565823"
-          className="inline-flex min-h-12 items-center justify-center liquid-glass-strong rounded-full px-8 py-3.5 text-sm font-semibold font-body text-white transition-colors hover:bg-white/5"
+          className="inline-flex min-h-12 w-full items-center justify-center liquid-glass-strong rounded-full px-8 py-3.5 text-sm font-semibold font-body text-white transition-colors hover:bg-white/5 sm:w-auto"
         >
           Call Us
         </a>
