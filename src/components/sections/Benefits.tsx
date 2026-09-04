@@ -1,32 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Plane, LayoutGrid, Sparkles } from "lucide-react";
+import { DollarSign, Plane, Briefcase, Scale } from "lucide-react";
 
 const benefits = [
   {
-    title: "Safety without compromise",
-    description:
-      "One of the most rigorous safety cultures in private aviation. Expert crews, continuous training, and a fleet maintained to the highest standard on every flight.",
-    icon: Shield,
+    title: "COST TRANSPARENCY, INVESTMENT CONFIDENCE",
+    description: "Explore premium programs with predictable pricing",
+    href: "/en-us/private-jet-cost-pricing",
+    icon: DollarSign,
   },
   {
-    title: "Access when it matters",
-    description:
-      "The scale of the world's largest private jet fleet means aircraft availability is not a hope — it is the product.",
+    title: "80+ NEW AIRCRAFT ARRIVING IN 2026",
+    description: "Tour the growing, global NetJets fleet",
+    href: "/en-us/compare-luxury-private-jets",
     icon: Plane,
   },
   {
-    title: "Programs built around you",
-    description:
-      "Share, Lease, or hour-based access. Every structure is designed around how you actually fly, not how a brochure wants you to.",
-    icon: LayoutGrid,
+    title: "CORPORATE TRAVEL, PERFECTED",
+    description: "Enhance your competitive edge",
+    href: "/en-us/business-jet-travel",
+    icon: Briefcase,
   },
   {
-    title: "Service that disappears",
-    description:
-      "Dedicated Owner Services, ground arrangements, and optional security so the only thing you notice is how little you have to think about.",
-    icon: Sparkles,
+    title: "NETJETS VS. OTHERS",
+    description: "See why NetJets is the only choice in private travel",
+    href: "/en-us/private-aviation-services",
+    icon: Scale,
   },
 ];
 
@@ -59,13 +59,14 @@ export default function Benefits() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
-            Why NetJets
+            FROM THE PIONEER OF FRACTIONAL AIRCRAFT OWNERSHIP
           </p>
           <h2 className="font-heading italic text-4xl tracking-tight leading-[0.9] text-white md:text-5xl lg:text-6xl">
-            Excellence in
-            <br />
-            <span className="text-white/60">every detail.</span>
+            THE PINNACLE OF PRIVATE TRAVEL
           </h2>
+          <p className="mt-6 max-w-2xl text-base font-body font-light leading-relaxed text-white/60 md:text-lg">
+            Expect the world with NetJets—the leading fractional aircraft company offering superior solutions favored by the most discerning travelers. Our vast, versatile private jet fleet, operational excellence, and proven business model ensure seamlessness and stability that is unmatched. Only NetJets®, a proud Berkshire Hathaway company, empowers luxury travel on your terms, marked by our resolute commitment to the highest safety standards, personalized service, and global access.
+          </p>
         </motion.div>
 
         <motion.div
@@ -78,8 +79,9 @@ export default function Benefits() {
           {benefits.map((b) => {
             const Icon = b.icon;
             return (
-              <motion.div
+              <motion.a
                 key={b.title}
+                href={b.href}
                 variants={item}
                 className="group liquid-glass rounded-2xl p-8 transition-colors"
               >
@@ -92,9 +94,24 @@ export default function Benefits() {
                 <p className="relative z-10 text-sm font-body font-light leading-relaxed text-white/60">
                   {b.description}
                 </p>
-              </motion.div>
+              </motion.a>
             );
           })}
+        </motion.div>
+
+        <motion.div
+          className="mt-10 liquid-glass rounded-2xl px-8 py-7 md:px-10"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
+        >
+          <p className="relative z-10 mb-2 text-xs font-medium font-body uppercase tracking-wider text-white/50">
+            UNSURPASSABLE LUXURY
+          </p>
+          <p className="relative z-10 text-base font-body font-light text-white/70 md:text-lg">
+            Flying with NetJets means seamless travel and personalized experiences.
+          </p>
         </motion.div>
       </div>
     </section>

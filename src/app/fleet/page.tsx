@@ -7,41 +7,37 @@ import FleetFlyover from "@/components/fleet/FleetFlyover";
 
 const fleet = [
   {
-    name: "Bombardier Global 7500",
+    name: "Bombardier Global 7500/8000",
     category: "Ultra Long-Range",
-    range: "7,700 nm",
-    passengers: "Up to 19",
-    description:
-      "The flagship. Unmatched cabin volume and range for the most demanding missions.",
     image: "/jets/global-7500-golden-hour.jpg",
   },
   {
-    name: "Bombardier Challenger 350",
+    name: "Bombardier Challenger 350/3500",
     category: "Super-Midsize",
-    range: "3,200 nm",
-    passengers: "Up to 10",
-    description:
-      "Performance and cabin comfort in a versatile super-midsize platform.",
     image: "/jets/challenger-350.jpg",
   },
   {
     name: "Cessna Citation Latitude",
     category: "Midsize",
-    range: "2,700 nm",
-    passengers: "Up to 9",
-    description:
-      "Refined midsize capability with modern efficiency and range.",
     image: "/jets/citation-latitude.jpg",
   },
   {
-    name: "Embraer Phenom 300E",
+    name: "Embraer Phenom 300/E",
     category: "Light Jet",
-    range: "2,010 nm",
-    passengers: "Up to 11",
-    description:
-      "One of the most successful light jets in the sky — agile, efficient, and refined.",
+    description: "NetJets’ legendary elegance and speed to virtually any airport or fixed-base operator (FBO).",
     image: "/jets/phenom-300e.jpg",
   },
+];
+
+const additionalFleet = [
+  "Bombardier Global 5000/5500",
+  "Bombardier Global 6000",
+  "Bombardier Challenger 650",
+  "Cessna Citation Longitude",
+  "Cessna Citation XLS",
+  "Cessna Citation Ascend",
+  "Cessna Citation Sovereign",
+  "Embraer Praetor 500",
 ];
 
 const container = {
@@ -74,17 +70,28 @@ export default function FleetPage() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
           >
             <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
-              The Fleet
+              EXPERIENCE THE LARGEST, MOST DIVERSE PRIVATE JET FLEET
             </p>
-            <h1 className="max-w-3xl font-heading italic text-5xl tracking-tight leading-[0.9] text-white md:text-6xl lg:text-7xl">
-              Aircraft for
-              <br />
-              <span className="text-white/55">every mission.</span>
+            <h1 className="max-w-4xl font-heading italic text-5xl tracking-tight leading-[0.9] text-white md:text-6xl lg:text-7xl">
+              Increased Access To Luxury Private Jets
             </h1>
-            <p className="mt-6 max-w-xl text-lg font-body font-light text-white/60">
-              From light jets to the ultra-long-range Global 7500 — every
-              aircraft maintained to the same standard.
+            <p className="mt-6 max-w-3xl text-lg font-body font-light text-white/60">
+              With NetJets, you gain on-demand access to our vast, versatile global fleet of luxury private jets, which we continually invest in. We thoughtfully purchase new aircraft and make forward-thinking enhancements to our existing jets. In 2026 we anticipate taking delivery of over 80 new private jets, increasing our already industry-leading access for Owners. That means you fly in consistent elegance on aircraft designed with you in mind. Tour the finest fleet—and compare our more than 10 aircraft types—to find your ideal private jet.
             </p>
+            <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">
+              <a
+                href="/request"
+                className="rounded-full bg-white px-8 py-3 text-sm font-semibold font-body text-black transition-colors hover:bg-white/90"
+              >
+                Request Information
+              </a>
+              <a
+                href="tel:+18773565823"
+                className="liquid-glass-strong rounded-full px-8 py-3 text-sm font-semibold font-body text-white transition-colors hover:bg-white/5"
+              >
+                Call Us
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -98,7 +105,7 @@ export default function FleetPage() {
         </div>
       </section>
 
-      <section className="pb-16 md:pb-20">
+      <section className="pb-12 md:pb-16">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <motion.div
             className="grid gap-8 md:grid-cols-2"
@@ -127,17 +134,55 @@ export default function FleetPage() {
                   <h2 className="mb-3 font-heading italic text-xl tracking-tight text-white">
                     {jet.name}
                   </h2>
-                  <p className="mb-5 text-sm font-body font-light leading-relaxed text-white/60">
-                    {jet.description}
-                  </p>
-                  <div className="flex gap-6 text-xs font-body font-light text-white/40">
-                    <span>Range {jet.range}</span>
-                    <span>{jet.passengers}</span>
-                  </div>
+                  {"description" in jet && jet.description ? (
+                    <p className="text-sm font-body font-light leading-relaxed text-white/60">
+                      {jet.description}
+                    </p>
+                  ) : null}
                 </div>
               </motion.article>
             ))}
           </motion.div>
+
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
+          >
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {additionalFleet.map((name) => (
+                <div
+                  key={name}
+                  className="liquid-glass rounded-2xl px-5 py-5"
+                >
+                  <h3 className="relative z-10 font-heading italic text-base tracking-tight text-white">
+                    {name}
+                  </h3>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-20">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-center">
+            <a
+              href="/request"
+              className="rounded-full bg-white px-8 py-3 text-sm font-semibold font-body text-black transition-colors hover:bg-white/90"
+            >
+              Request Information
+            </a>
+            <a
+              href="tel:+18773565823"
+              className="liquid-glass-strong rounded-full px-8 py-3 text-sm font-semibold font-body text-white transition-colors hover:bg-white/5"
+            >
+              Call Us
+            </a>
+          </div>
         </div>
       </section>
 

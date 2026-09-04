@@ -10,7 +10,6 @@ export default function Footer() {
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-4">
             <Logo className="mb-6 text-white" />
-            <p className="mb-5 max-w-xs text-sm font-body font-light leading-relaxed text-white/60">{footerData.tagline}</p>
             <a href={footerData.phoneHref} className="block text-lg font-medium font-body tracking-tight text-white transition-colors hover:text-white/80">{footerData.phone}</a>
             <p className="mt-3 text-sm font-body font-light leading-relaxed text-white/45">{footerData.address}</p>
           </div>

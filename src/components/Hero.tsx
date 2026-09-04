@@ -3,19 +3,12 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import { primaryNav } from "@/content/nav";
 
 const VIDEO_URL = "/video/imagine-flyover.mp4";
 const HOLD_S = 2.8;
 const FADE_MS = 2400;
 const FADE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
-
-const NAV_ITEMS = [
-  { label: "Programs", href: "/programs" },
-  { label: "Fleet", href: "/fleet" },
-  { label: "Solutions", href: "/private-aviation-solutions" },
-  { label: "Locations", href: "/locations" },
-  { label: "Careers", href: "/careers" },
-];
 
 const SLIDESHOW = [
   {
@@ -137,7 +130,7 @@ export default function Hero() {
           <Logo className="h-8 text-white" />
           <nav className="hidden items-center md:flex">
             <div className="liquid-glass flex items-center rounded-full px-1.5 py-1">
-              {NAV_ITEMS.map((item) => (
+              {primaryNav.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
@@ -168,7 +161,7 @@ export default function Hero() {
         {mobileOpen && (
           <div className="mt-4 liquid-glass rounded-2xl p-6 shadow-xl md:hidden">
             <nav className="relative z-10 flex flex-col gap-4">
-              {NAV_ITEMS.map((item) => (
+              {primaryNav.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
@@ -193,21 +186,14 @@ export default function Hero() {
       <div className="relative z-20 mx-auto max-w-4xl px-6 pt-8 md:pt-12 text-center">
         <div className="pointer-events-none absolute left-1/2 top-6 h-[70%] w-[min(100%,42rem)] -translate-x-1/2 rounded-[40%] bg-black/35 blur-3xl" aria-hidden="true" />
         <div className="relative">
-          <p className="mb-5 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
-            World{"'"}s Leading Private Jet Company
-          </p>
-
           <h1 className="mx-auto max-w-4xl font-heading italic text-white leading-[0.8] tracking-tight md:tracking-[-0.04em]">
-            <span className="block text-4xl text-white/90 md:text-6xl lg:text-[5.5rem]">
-              Time is the
-            </span>
-            <span className="block text-4xl text-white md:text-6xl lg:text-[5.5rem]">
-              only luxury.
+            <span className="block text-3xl text-white md:text-5xl lg:text-[4.25rem]">
+              WHICH PROGRAM IS BEST FOR YOU?
             </span>
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm font-body font-light leading-tight text-white/85 md:text-base lg:text-lg">
-            The most advanced private jet fleet in the world. Access it on your terms.
+            COMPARE OUR SHARE AND CARD TO FIND YOUR IDEAL SOLUTION
           </p>
         </div>
       </div>

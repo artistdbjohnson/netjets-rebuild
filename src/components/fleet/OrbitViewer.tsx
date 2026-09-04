@@ -25,17 +25,11 @@ export default function OrbitViewer() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
-            Global 7500
+            Bombardier Global 7500/8000
           </p>
           <h2 className="font-heading italic text-4xl tracking-tight leading-[0.9] text-white md:text-5xl lg:text-6xl">
-            Inspect the
-            <br />
-            <span className="text-white/60">aircraft.</span>
+            Bombardier Global 7500/8000
           </h2>
-          <p className="mt-5 max-w-lg text-lg font-body font-light text-white/60">
-            Orbit the proportions that define ultra-long-range. Drag to rotate.
-            Scroll to zoom.
-          </p>
         </motion.div>
 
         <motion.div
@@ -51,7 +45,7 @@ export default function OrbitViewer() {
 
           <div className="flex items-center justify-between border-t border-white/8 px-6 py-4">
             <p className="text-xs font-medium uppercase tracking-wider text-white/40">
-              Bombardier Global 7500 · 7,700 nm · 111 ft · GE Passport
+              Bombardier Global 7500/8000
             </p>
             <p className="hidden text-xs text-white/30 sm:block">
               Drag to orbit · Scroll to zoom

@@ -4,31 +4,24 @@ import { motion } from "framer-motion";
 
 const jets = [
   {
-    name: "Global 7500",
+    name: "Bombardier Global 7500/8000",
     category: "Ultra Long-Range",
-    description:
-      "The flagship. Unmatched cabin volume and range for the most demanding missions.",
     image: "/jets/global-7500-golden-hour.jpg",
   },
   {
-    name: "Challenger 350",
+    name: "Bombardier Challenger 350/3500",
     category: "Super-Midsize",
-    description:
-      "Performance and cabin comfort in a versatile super-midsize platform.",
     image: "/jets/challenger-350.jpg",
   },
   {
-    name: "Citation Latitude",
+    name: "Cessna Citation Latitude",
     category: "Midsize",
-    description:
-      "Refined midsize capability with modern efficiency and range.",
     image: "/jets/citation-latitude.jpg",
   },
   {
-    name: "Phenom 300E",
+    name: "Embraer Phenom 300/E",
     category: "Light Jet",
-    description:
-      "One of the most successful light jets in the sky — agile, efficient, and refined.",
+    description: "NetJets’ legendary elegance and speed to virtually any airport or fixed-base operator (FBO).",
     image: "/jets/phenom-300e.jpg",
   },
 ];
@@ -61,14 +54,12 @@ export default function FleetPreview() {
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
         >
-          <div className="max-w-xl">
+          <div className="max-w-2xl">
             <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
-              The Fleet
+              EXPERIENCE THE LARGEST, MOST DIVERSE PRIVATE JET FLEET
             </p>
             <h2 className="font-heading italic text-4xl tracking-tight leading-[0.9] text-white md:text-5xl lg:text-[3.75rem]">
-              Aircraft for
-              <br />
-              <span className="text-white/60">every mission.</span>
+              Increased Access To Luxury Private Jets
             </h2>
           </div>
           <a
@@ -107,9 +98,11 @@ export default function FleetPreview() {
                 <h3 className="mb-2 font-heading italic text-xl tracking-tight text-white">
                   {jet.name}
                 </h3>
-                <p className="text-sm font-body font-light leading-relaxed text-white/60">
-                  {jet.description}
-                </p>
+                {"description" in jet && jet.description ? (
+                  <p className="text-sm font-body font-light leading-relaxed text-white/60">
+                    {jet.description}
+                  </p>
+                ) : null}
               </div>
             </motion.a>
           ))}
