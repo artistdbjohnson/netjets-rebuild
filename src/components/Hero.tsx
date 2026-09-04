@@ -47,13 +47,13 @@ export default function Hero() {
         loop
         playsInline
         preload="metadata"
-        className="absolute inset-0 h-full w-full object-cover object-[center_40%] max-sm:object-contain max-sm:object-center"
+        className="absolute inset-0 h-full w-full object-cover object-[center_42%]"
         aria-hidden="true"
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-transparent" />
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/75 to-transparent sm:h-52 md:h-64"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-52 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/85 to-transparent sm:h-56 md:h-64"
         aria-hidden="true"
       />
 
