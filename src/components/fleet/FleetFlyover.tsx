@@ -5,7 +5,7 @@ const POSTER = "/video/imagine-flyover-poster.jpg";
 
 export default function FleetFlyover() {
   return (
-    <div className="relative overflow-hidden liquid-glass rounded-2xl bg-[#0a0a0b]">
+    <div className="relative liquid-glass rounded-2xl bg-[#0a0a0b]">
       <div className="relative aspect-[3/2] w-full">
         <img
           src={POSTER}

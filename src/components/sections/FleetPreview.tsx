@@ -82,7 +82,7 @@ export default function FleetPreview() {
               key={jet.name}
               href="/fleet"
               variants={item}
-              className="group relative liquid-glass overflow-hidden rounded-2xl transition-all"
+              className="group relative liquid-glass rounded-2xl transition-all"
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img

@@ -118,7 +118,7 @@ export default function FleetPage() {
               <motion.article
                 key={jet.name}
                 variants={item}
-                className="group liquid-glass overflow-hidden rounded-2xl transition-all"
+                className="group liquid-glass rounded-2xl transition-all"
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
