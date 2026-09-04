@@ -102,7 +102,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
           />
           <div
             ref={panelRef}
-            className="fixed inset-x-0 bottom-0 z-50 max-h-[85svh] overflow-y-auto rounded-t-3xl border border-white/10 bg-[#0a0a0b]/95 px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl backdrop-blur-xl lg:hidden"
+            className="fixed inset-x-0 bottom-0 z-50 max-h-[85svh] overflow-y-auto rounded-t-3xl bg-[#0a0a0b]/95 border border-white/10 backdrop-blur-xl px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation"
@@ -125,6 +125,13 @@ export default function Nav({ variant = "transparent" }: NavProps) {
                 onClick={() => setMobileOpen(false)}
               >
                 Request Information
+              </a>
+              <a
+                href="tel:+18773565823"
+                className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-full liquid-glass-strong px-5 py-3 text-base font-semibold font-body text-white"
+                onClick={() => setMobileOpen(false)}
+              >
+                Call Us
               </a>
             </nav>
           </div>

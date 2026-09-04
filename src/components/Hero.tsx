@@ -105,7 +105,7 @@ export default function Hero() {
           />
           <div
             ref={panelRef}
-            className="fixed inset-x-0 bottom-0 z-50 max-h-[85svh] overflow-y-auto rounded-t-3xl border border-white/10 bg-[#0a0a0b]/95 px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl backdrop-blur-xl lg:hidden"
+            className="fixed inset-x-0 bottom-0 z-50 max-h-[85svh] overflow-y-auto rounded-t-3xl bg-[#0a0a0b]/95 border border-white/10 backdrop-blur-xl px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation"
@@ -124,10 +124,17 @@ export default function Hero() {
               ))}
               <a
                 href="/request"
-                className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-5 py-3 text-base font-semibold font-body text-black"
+                className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-white px-5 py-3 text-base font-semibold font-body text-black"
                 onClick={() => setMobileOpen(false)}
               >
                 Request Information
+              </a>
+              <a
+                href="tel:+18773565823"
+                className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-full liquid-glass-strong px-5 py-3 text-base font-semibold font-body text-white"
+                onClick={() => setMobileOpen(false)}
+              >
+                Call Us
               </a>
             </nav>
           </div>
@@ -136,16 +143,16 @@ export default function Hero() {
 
       <div className="relative z-20 mx-auto flex max-w-4xl flex-col px-4 pt-10 text-center sm:px-6 sm:pt-12 md:pt-14">
         <div
-          className="pointer-events-none absolute left-1/2 top-8 h-[70%] w-[min(100%,42rem)] -translate-x-1/2 rounded-[40%] bg-black/35 blur-3xl"
+          className="pointer-events-none absolute left-1/2 top-8 h-[75%] w-[min(100%,42rem)] -translate-x-1/2 rounded-[40%] bg-black/55 blur-3xl"
           aria-hidden="true"
         />
         <div className="relative">
-          <h1 className="mx-auto max-w-[20rem] font-heading italic text-white leading-[0.95] tracking-tight sm:max-w-4xl md:tracking-[-0.04em]">
-            <span className="block text-[2rem] text-white sm:text-4xl md:text-5xl lg:text-[4.25rem]">
+          <h1 className="mx-auto w-full max-w-[20rem] font-heading italic text-white leading-[0.92] tracking-tight sm:max-w-4xl md:tracking-[-0.04em]">
+            <span className="block text-[1.85rem] text-white sm:text-4xl md:text-5xl lg:text-[4.25rem]">
               WHICH PROGRAM IS BEST FOR YOU?
             </span>
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-[0.8125rem] font-body font-light uppercase leading-snug tracking-[0.06em] text-white/90 sm:mt-5 sm:text-sm md:text-base lg:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-[0.8125rem] font-body font-light uppercase leading-snug tracking-[0.06em] text-white sm:mt-5 sm:text-sm md:text-base lg:text-lg">
             COMPARE OUR SHARE AND CARD TO FIND YOUR IDEAL SOLUTION
           </p>
         </div>
