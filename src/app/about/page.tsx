@@ -16,8 +16,8 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/45">About</p>
-            <h1 className="max-w-3xl text-5xl font-normal tracking-tighter text-white md:text-6xl lg:text-7xl">
+            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">About</p>
+            <h1 className="max-w-3xl font-heading italic text-5xl tracking-tight leading-[0.9] text-white md:text-6xl lg:text-7xl">
               The standard<br /><span className="text-white/55">the industry is measured against.</span>
             </h1>
           </motion.div>
@@ -34,16 +34,16 @@ export default function AboutPage() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div>
-              <p className="text-base leading-relaxed text-white/60">
-                NetJets is the world's largest private jet company. Fractional ownership, lease programs, and hour-based access -- built on one foundation: a rigorously maintained fleet, expert crews, and service that treats every detail as non-negotiable.
+              <p className="text-base font-body font-light leading-relaxed text-white/60">
+                NetJets is the world's largest private jet company. Fractional ownership, lease programs, and hour-based access — built on one foundation: a rigorously maintained fleet, expert crews, and service that treats every detail as non-negotiable.
               </p>
-              <p className="mt-6 text-base leading-relaxed text-white/60">
+              <p className="mt-6 text-base font-body font-light leading-relaxed text-white/60">
                 From light jets to ultra-long-range aircraft, the experience stays consistent whether the mission is a short domestic leg or an intercontinental flight. Safety is the operating culture. Flexibility is the product.
               </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm transition-colors hover:border-white/18">
-              <h2 className="mb-4 text-lg font-medium tracking-tight text-white">At a glance</h2>
-              <ul className="space-y-3 text-sm text-white/55">
+            <div className="liquid-glass rounded-2xl p-8 transition-colors">
+              <h2 className="mb-4 font-heading italic text-lg tracking-tight text-white">At a glance</h2>
+              <ul className="space-y-3 text-sm font-body font-light text-white/60">
                 <li>• World's largest private jet fleet operator</li>
                 <li>• A Berkshire Hathaway company</li>
                 <li>• Headquarters in Columbus, Ohio</li>

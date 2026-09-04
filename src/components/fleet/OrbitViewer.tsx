@@ -24,22 +24,22 @@ export default function OrbitViewer() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/45">
+          <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
             Global 7500
           </p>
-          <h2 className="text-4xl font-normal tracking-tighter text-white md:text-5xl lg:text-6xl">
+          <h2 className="font-heading italic text-4xl tracking-tight leading-[0.9] text-white md:text-5xl lg:text-6xl">
             Inspect the
             <br />
             <span className="text-white/60">aircraft.</span>
           </h2>
-          <p className="mt-5 max-w-lg text-lg text-white/55">
+          <p className="mt-5 max-w-lg text-lg font-body font-light text-white/60">
             Orbit the proportions that define ultra-long-range. Drag to rotate.
             Scroll to zoom.
           </p>
         </motion.div>
 
         <motion.div
-          className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm"
+          className="relative overflow-hidden liquid-glass rounded-2xl"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}

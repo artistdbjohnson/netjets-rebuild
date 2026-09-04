@@ -16,14 +16,14 @@ export const colors = {
 } as const;
 
 export const glass = {
-  bg: "rgba(255, 255, 255, 0.06)",
-  bgStrong: "rgba(255, 255, 255, 0.10)",
+  bg: "rgba(255, 255, 255, 0.12)",
+  bgStrong: "rgba(255, 255, 255, 0.01)",
   bgDark: "rgba(10, 10, 11, 0.75)",
-  border: "rgba(255, 255, 255, 0.12)",
-  borderStrong: "rgba(255, 255, 255, 0.18)",
-  blur: "20px",
-  blurStrong: "28px",
-  shadow: "0 8px 32px rgba(0, 0, 0, 0.18)",
+  border: "rgba(255, 255, 255, 0.25)",
+  borderStrong: "rgba(255, 255, 255, 0.45)",
+  blur: "4px",
+  blurStrong: "50px",
+  shadow: "0 4px 30px rgba(0, 0, 0, 0.08)",
 } as const;
 
 export const brand = {
@@ -35,10 +35,10 @@ export const brand = {
 } as const;
 
 export const typography = {
-  display: "font-normal tracking-tighter leading-none",
-  heading: "font-semibold tracking-tight",
-  body: "font-normal leading-relaxed",
-  label: "text-sm font-semibold uppercase tracking-wider",
+  display: "font-heading italic tracking-tight leading-[0.9]",
+  heading: "font-heading italic tracking-tight",
+  body: "font-body font-light leading-relaxed",
+  label: "liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body",
 } as const;
 
 export const spacing = {

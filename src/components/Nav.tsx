@@ -23,35 +23,69 @@ export default function Nav({ variant = "transparent" }: NavProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-        isTransparent
-          ? "bg-transparent"
-          : "bg-[#0a0a0b]/80 backdrop-blur-xl border-b border-white/5"
+      className={`fixed top-4 left-0 right-0 z-50 px-4 md:px-8 lg:px-16 transition-all duration-500 ${
+        isTransparent ? "" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-8">
-        <a href="/" className="relative z-10">
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 py-2.5 md:px-5 md:py-3 transition-all duration-500 ${
+          isTransparent ? "bg-transparent" : "liquid-glass"
+        }`}
+      >
+        <a href="/" className="relative z-10 shrink-0">
           <Logo className="h-7 text-white" />
         </a>
-        <nav className="hidden items-center gap-9 md:flex">
-          {primaryNav.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm font-medium text-white/80 transition-colors hover:text-white">
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <button type="button" className="relative z-10 text-white md:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? "Close menu" : "Open menu"}>
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-      {mobileOpen && (
-        <div className="absolute left-4 right-4 top-full mt-2 rounded-2xl border border-white/10 bg-[#0a0a0b]/95 p-6 shadow-2xl backdrop-blur-2xl md:hidden">
-          <nav className="flex flex-col gap-4">
+
+        <nav className="hidden items-center md:flex">
+          <div className="liquid-glass flex items-center rounded-full px-1.5 py-1">
             {primaryNav.map((item) => (
-              <a key={item.href} href={item.href} className="text-base font-medium text-white/90" onClick={() => setMobileOpen(false)}>
+              <a
+                key={item.href}
+                href={item.href}
+                className="relative z-10 px-3 py-2 text-sm font-medium font-body text-white/90 transition-colors hover:text-white"
+              >
                 {item.label}
               </a>
             ))}
+            <a
+              href="/request"
+              className="relative z-10 ml-1 rounded-full bg-white px-3.5 py-1.5 text-sm font-medium font-body text-black transition-colors hover:bg-white/90"
+            >
+              Request
+            </a>
+          </div>
+        </nav>
+
+        <button
+          type="button"
+          className="relative z-10 text-white md:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {mobileOpen && (
+        <div className="absolute left-4 right-4 top-full mt-2 liquid-glass rounded-2xl p-6 shadow-2xl md:hidden">
+          <nav className="relative z-10 flex flex-col gap-4">
+            {primaryNav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-base font-medium font-body text-white/90"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="/request"
+              className="mt-2 inline-flex w-fit rounded-full bg-white px-4 py-2 text-sm font-medium font-body text-black"
+              onClick={() => setMobileOpen(false)}
+            >
+              Request
+            </a>
           </nav>
         </div>
       )}

@@ -9,35 +9,21 @@ const FADE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 const SLIDESHOW = [
   { src: "/jets/global-7500-golden-side.jpg", alt: "Bombardier Global 7500 side profile over clouds", pos: "center 22%" },
-  { src: "/jets/global-7500-reference.jpg", alt: "Bombardier Global 7500 over clouds", pos: "20% 10%" },
+  { src: "/jets/global-7500-golden-hour.jpg", alt: "Bombardier Global 7500 at golden hour", pos: "center 30%" },
+  { src: "/jets/challenger-350.jpg", alt: "Bombardier Challenger 350", pos: "center 40%" },
+  { src: "/jets/citation-latitude.jpg", alt: "Cessna Citation Latitude", pos: "center 35%" },
+  { src: "/jets/phenom-300e.jpg", alt: "Embraer Phenom 300E", pos: "center 40%" },
+  { src: "/jets/cabin-interior.jpg", alt: "Private jet cabin interior", pos: "center center" },
+  { src: "/jets/global-7500-side.jpg", alt: "Bombardier Global 7500 side view", pos: "center 35%" },
 ] as const;
 
 type Phase = "clip" | "dissolve" | "stills";
 
 export default function FleetFlyover() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [hasVideo, setHasVideo] = useState(false);
   const [phase, setPhase] = useState<Phase>("clip");
   const [slideIndex, setSlideIndex] = useState(0);
   const [baseIndex, setBaseIndex] = useState(0);
-
-  useEffect(() => {
-    let cancelled = false;
-    async function probe() {
-      try {
-        const res = await fetch(FLYOVER_URL, { method: "HEAD" });
-        if (cancelled) return;
-        if (res.ok || res.status === 405) setHasVideo(true);
-        else setPhase("stills");
-      } catch {
-        if (!cancelled) setPhase("stills");
-      }
-    }
-    void probe();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -75,11 +61,6 @@ export default function FleetFlyover() {
 
   const finishToStills = () => setPhase("stills");
 
-  const failVideo = () => {
-    setHasVideo(false);
-    setPhase("stills");
-  };
-
   const onTimeUpdate = () => {
     const el = videoRef.current;
     if (!el) return;
@@ -90,37 +71,36 @@ export default function FleetFlyover() {
   const videoOpacity = phase === "stills" ? 0 : 1;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0b]">
-      <div className="relative aspect-[3/2] w-full">
+    <div className="relative overflow-hidden liquid-glass rounded-2xl bg-[#0a0a0b]">
+      <div className="relative aspect-[16/9] w-full md:aspect-[2/1]">
         <img
           src="/jets/global-7500-golden-side.jpg"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
           style={{ objectPosition: "center 40%" }}
         />
-        {hasVideo && (
-          <video
-            ref={videoRef}
-            src={FLYOVER_URL}
-            poster="/jets/global-7500-golden-side.jpg"
-            autoPlay
-            muted
-            playsInline
-            onLoadedMetadata={() => {
-              if (videoRef.current) videoRef.current.currentTime = 0;
-            }}
-            onTimeUpdate={onTimeUpdate}
-            onEnded={finishToStills}
-            onError={failVideo}
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{
-              opacity: videoOpacity,
-              objectPosition: "center 40%",
-              transition: `opacity ${FADE_MS}ms ${FADE_EASE}`,
-            }}
-            aria-hidden="true"
-          />
-        )}
+        <video
+          ref={videoRef}
+          src={FLYOVER_URL}
+          poster="/jets/global-7500-golden-side.jpg"
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          onLoadedMetadata={() => {
+            if (videoRef.current) videoRef.current.currentTime = 0;
+          }}
+          onTimeUpdate={onTimeUpdate}
+          onEnded={finishToStills}
+          onError={finishToStills}
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{
+            opacity: videoOpacity,
+            objectPosition: "center 40%",
+            transition: `opacity ${FADE_MS}ms ${FADE_EASE}`,
+          }}
+          aria-hidden="true"
+        />
         {SLIDESHOW.map((slide, i) => (
           <div
             key={slide.src}
@@ -138,6 +118,10 @@ export default function FleetFlyover() {
             aria-label={slide.alt}
           />
         ))}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/50 to-transparent"
+          aria-hidden="true"
+        />
       </div>
     </div>
   );

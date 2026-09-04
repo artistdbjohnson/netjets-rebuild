@@ -39,7 +39,7 @@ const fleet = [
     range: "2,010 nm",
     passengers: "Up to 11",
     description:
-      "One of the most successful light jets in the sky -- agile, efficient, and refined.",
+      "One of the most successful light jets in the sky — agile, efficient, and refined.",
     image: "/jets/phenom-300e.jpg",
   },
 ];
@@ -66,23 +66,23 @@ export default function FleetPage() {
     <main className="min-h-screen bg-[#0a0a0b]">
       <Nav variant="solid" />
 
-      <section className="scroll-mt-20 pt-32 pb-8 md:scroll-mt-24 md:pt-40 md:pb-10">
+      <section className="scroll-mt-20 pt-28 pb-6 md:scroll-mt-24 md:pt-36 md:pb-8">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
           >
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/45">
+            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
               The Fleet
             </p>
-            <h1 className="max-w-3xl text-5xl font-normal tracking-tighter text-white md:text-6xl lg:text-7xl">
+            <h1 className="max-w-3xl font-heading italic text-5xl tracking-tight leading-[0.9] text-white md:text-6xl lg:text-7xl">
               Aircraft for
               <br />
               <span className="text-white/55">every mission.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-white/55">
-              From light jets to the ultra-long-range Global 7500 -- every
+            <p className="mt-6 max-w-xl text-lg font-body font-light text-white/60">
+              From light jets to the ultra-long-range Global 7500 — every
               aircraft maintained to the same standard.
             </p>
           </motion.div>
@@ -91,27 +91,27 @@ export default function FleetPage() {
 
       <section
         id="fleet-flyover"
-        className="scroll-mt-20 pb-10 md:scroll-mt-24 md:pb-12"
+        className="scroll-mt-20 pb-8 md:scroll-mt-24 md:pb-10"
       >
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <FleetFlyover />
         </div>
       </section>
 
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-20">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <motion.div
             className="grid gap-8 md:grid-cols-2"
             variants={container}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: true, amount: 0.15 }}
           >
             {fleet.map((jet) => (
               <motion.article
                 key={jet.name}
                 variants={item}
-                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm transition-all hover:border-white/18"
+                className="group liquid-glass overflow-hidden rounded-2xl transition-all"
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
@@ -120,17 +120,17 @@ export default function FleetPage() {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-7">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/40">
+                <div className="relative z-10 p-7">
+                  <p className="mb-2 text-xs font-medium font-body uppercase tracking-wider text-white/40">
                     {jet.category}
                   </p>
-                  <h2 className="mb-3 text-xl font-medium tracking-tight text-white">
+                  <h2 className="mb-3 font-heading italic text-xl tracking-tight text-white">
                     {jet.name}
                   </h2>
-                  <p className="mb-5 text-sm leading-relaxed text-white/50">
+                  <p className="mb-5 text-sm font-body font-light leading-relaxed text-white/60">
                     {jet.description}
                   </p>
-                  <div className="flex gap-6 text-xs text-white/40">
+                  <div className="flex gap-6 text-xs font-body font-light text-white/40">
                     <span>Range {jet.range}</span>
                     <span>{jet.passengers}</span>
                   </div>

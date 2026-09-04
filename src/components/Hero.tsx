@@ -24,9 +24,34 @@ const SLIDESHOW = [
     pos: "center 22%",
   },
   {
-    src: "/jets/global-7500-reference.jpg",
-    alt: "Bombardier Global 7500 over clouds",
-    pos: "20% 10%",
+    src: "/jets/global-7500-golden-hour.jpg",
+    alt: "Bombardier Global 7500 at golden hour",
+    pos: "center 30%",
+  },
+  {
+    src: "/jets/challenger-350.jpg",
+    alt: "Bombardier Challenger 350",
+    pos: "center 40%",
+  },
+  {
+    src: "/jets/citation-latitude.jpg",
+    alt: "Cessna Citation Latitude",
+    pos: "center 35%",
+  },
+  {
+    src: "/jets/phenom-300e.jpg",
+    alt: "Embraer Phenom 300E",
+    pos: "center 40%",
+  },
+  {
+    src: "/jets/cabin-interior.jpg",
+    alt: "Private jet cabin interior",
+    pos: "center center",
+  },
+  {
+    src: "/jets/global-7500-side.jpg",
+    alt: "Bombardier Global 7500 side view",
+    pos: "center 35%",
   },
 ];
 
@@ -93,6 +118,7 @@ export default function Hero() {
         autoPlay
         muted
         playsInline
+        preload="auto"
         onLoadedMetadata={() => {
           if (videoRef.current) videoRef.current.currentTime = 0;
         }}
@@ -129,23 +155,31 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-transparent" />
 
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-36 md:h-48 lg:h-56 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/70 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-48 md:h-64 lg:h-[300px] bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/80 to-transparent"
         aria-hidden="true"
       />
 
-      <header className="relative z-20 mx-auto max-w-7xl px-6 py-6 md:px-8">
+      <header className="relative z-20 mx-auto max-w-7xl px-6 pt-4 md:px-8 md:pt-5">
         <div className="flex items-center justify-between">
           <Logo className="h-8 text-white" />
-          <nav className="hidden items-center gap-8 md:flex">
-            {NAV_ITEMS.map((item) => (
+          <nav className="hidden items-center md:flex">
+            <div className="liquid-glass flex items-center rounded-full px-1.5 py-1">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="relative z-10 px-3 py-2 text-sm font-medium font-body text-white/90 transition-colors hover:text-white"
+                >
+                  {item.label}
+                </a>
+              ))}
               <a
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-white/90 transition-colors hover:text-white"
+                href="/request"
+                className="relative z-10 ml-1 rounded-full bg-white px-3.5 py-1.5 text-sm font-medium font-body text-black transition-colors hover:bg-white/90"
               >
-                {item.label}
+                Request
               </a>
-            ))}
+            </div>
           </nav>
 
           <button
@@ -159,52 +193,62 @@ export default function Hero() {
         </div>
 
         {mobileOpen && (
-          <div className="mt-4 rounded-2xl border border-white/20 bg-white/10 p-6 shadow-xl backdrop-blur-xl md:hidden">
-            <nav className="flex flex-col gap-4">
+          <div className="mt-4 liquid-glass rounded-2xl p-6 shadow-xl md:hidden">
+            <nav className="relative z-10 flex flex-col gap-4">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-base font-medium text-white"
+                  className="text-base font-medium font-body text-white"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
+              <a
+                href="/request"
+                className="mt-1 inline-flex w-fit rounded-full bg-white px-4 py-2 text-sm font-medium font-body text-black"
+                onClick={() => setMobileOpen(false)}
+              >
+                Request
+              </a>
             </nav>
           </div>
         )}
       </header>
 
-      <div className="relative z-20 mx-auto max-w-4xl px-6 pt-4 md:pt-6 text-center">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-white/70">
-          World{"'"}s Leading Private Jet Company
-        </p>
+      <div className="relative z-20 mx-auto max-w-4xl px-6 pt-8 md:pt-12 text-center">
+        <div className="pointer-events-none absolute left-1/2 top-6 h-[70%] w-[min(100%,42rem)] -translate-x-1/2 rounded-[40%] bg-black/35 blur-3xl" aria-hidden="true" />
+        <div className="relative">
+          <p className="mb-5 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
+            World{"'"}s Leading Private Jet Company
+          </p>
 
-        <h1 className="max-w-4xl">
-          <span className="block text-4xl font-normal leading-none tracking-tighter text-white/80 md:text-6xl lg:text-7xl">
-            Time is the
-          </span>
-          <span className="block -mt-2 text-4xl font-normal leading-none tracking-tighter text-white md:text-6xl lg:text-7xl">
-            only luxury.
-          </span>
-        </h1>
+          <h1 className="mx-auto max-w-4xl font-heading italic text-white leading-[0.8] tracking-tight md:tracking-[-0.04em]">
+            <span className="block text-4xl text-white/90 md:text-6xl lg:text-[5.5rem]">
+              Time is the
+            </span>
+            <span className="block text-4xl text-white md:text-6xl lg:text-[5.5rem]">
+              only luxury.
+            </span>
+          </h1>
 
-        <p className="mx-auto mt-1 max-w-2xl text-base text-white/80 md:text-lg">
-          The most advanced private jet fleet in the world. Access it on your terms.
-        </p>
+          <p className="mx-auto mt-5 max-w-2xl text-sm font-body font-light leading-tight text-white/85 md:text-base lg:text-lg">
+            The most advanced private jet fleet in the world. Access it on your terms.
+          </p>
+        </div>
       </div>
 
       <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center justify-center gap-3 px-6 pb-10 sm:flex-row md:pb-14">
         <a
-          href="#request"
-          className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-[#202124] transition-colors hover:bg-white/90"
+          href="/request"
+          className="rounded-full bg-white px-8 py-3 text-sm font-semibold font-body text-black transition-colors hover:bg-white/90"
         >
           Request Information
         </a>
         <a
           href="tel:+18773565823"
-          className="rounded-full border border-white/40 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/20"
+          className="liquid-glass-strong rounded-full px-8 py-3 text-sm font-semibold font-body text-white transition-colors hover:bg-white/5"
         >
           Call Us
         </a>

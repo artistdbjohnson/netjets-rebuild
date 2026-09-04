@@ -28,7 +28,7 @@ const jets = [
     name: "Phenom 300E",
     category: "Light Jet",
     description:
-      "One of the most successful light jets in the sky -- agile, efficient, and refined.",
+      "One of the most successful light jets in the sky — agile, efficient, and refined.",
     image: "/jets/phenom-300e.jpg",
   },
 ];
@@ -55,17 +55,17 @@ export default function FleetPreview() {
     <section className="relative bg-[#0a0a0b] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
-          className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
+          className="mb-14 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <div className="max-w-xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/45">
+            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
               The Fleet
             </p>
-            <h2 className="text-4xl font-normal tracking-tighter text-white md:text-5xl lg:text-6xl">
+            <h2 className="font-heading italic text-4xl tracking-tight leading-[0.9] text-white md:text-5xl lg:text-[3.75rem]">
               Aircraft for
               <br />
               <span className="text-white/60">every mission.</span>
@@ -73,7 +73,7 @@ export default function FleetPreview() {
           </div>
           <a
             href="/fleet"
-            className="rounded-full border border-white/20 bg-white/5 px-7 py-3 text-sm font-medium text-white backdrop-blur-md transition-colors hover:bg-white/10"
+            className="relative z-10 liquid-glass-strong rounded-full px-7 py-3 text-sm font-medium font-body text-white transition-colors hover:bg-white/5"
           >
             View Full Fleet
           </a>
@@ -84,14 +84,14 @@ export default function FleetPreview() {
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, amount: 0.15 }}
         >
           {jets.map((jet) => (
             <motion.a
               key={jet.name}
               href="/fleet"
               variants={item}
-              className="group relative overflow-hidden rounded-2xl border border-white/8 bg-white/[0.02] transition-all hover:border-white/15"
+              className="group relative liquid-glass overflow-hidden rounded-2xl transition-all"
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
@@ -100,14 +100,14 @@ export default function FleetPreview() {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="p-6">
-                <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">
+              <div className="relative z-10 p-6">
+                <p className="mb-1 text-xs font-medium font-body uppercase tracking-wider text-white/40">
                   {jet.category}
                 </p>
-                <h3 className="mb-2 text-xl font-medium tracking-tight text-white">
+                <h3 className="mb-2 font-heading italic text-xl tracking-tight text-white">
                   {jet.name}
                 </h3>
-                <p className="text-sm leading-relaxed text-white/50">
+                <p className="text-sm font-body font-light leading-relaxed text-white/60">
                   {jet.description}
                 </p>
               </div>
