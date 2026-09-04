@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 import { primaryNav } from "@/content/nav";
 
 type NavProps = {
@@ -57,7 +58,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
         }`}
       >
         <div className="relative z-10 shrink-0">
-          <Logo className="h-7 text-white" />
+          <Logo className="h-7" variant="theme" />
         </div>
 
         <nav className="hidden items-center lg:flex">
@@ -80,6 +81,9 @@ export default function Nav({ variant = "transparent" }: NavProps) {
           </div>
         </nav>
 
+        <div className="flex items-center gap-0.5">
+          <ThemeToggle className="hidden lg:inline-flex" />
+          <ThemeToggle className="lg:hidden" />
         <button
           ref={buttonRef}
           type="button"
@@ -90,6 +94,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
+        </div>
       </div>
 
       {mobileOpen && (

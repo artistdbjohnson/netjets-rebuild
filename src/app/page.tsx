@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import ContactUtility from "@/components/sections/ContactUtility";
+import OwnersLounge from "@/components/sections/OwnersLounge";
 import Pinnacle from "@/components/sections/Pinnacle";
 import CostTransparency from "@/components/sections/CostTransparency";
 import NewAircraft from "@/components/sections/NewAircraft";
@@ -19,9 +20,10 @@ import Footer from "@/components/Footer";
  */
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0b]">
+    <main className="min-h-screen bg-[var(--bed)]">
       <Hero />
       <ContactUtility />
+      <OwnersLounge />
       <Pinnacle />
       <CostTransparency />
       <NewAircraft />

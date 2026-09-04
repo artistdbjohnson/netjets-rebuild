@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Barlow, Work_Sans } from "next/font/google";
+import { THEME_FOUC_SCRIPT } from "@/lib/theme";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -17,7 +18,6 @@ const barlow = Barlow({
   display: "swap",
 });
 
-/* Closest free alternative to live GT Zirkon / NetJets wordmark — see FONT-NOTE.md */
 const workSans = Work_Sans({
   subsets: ["latin"],
   weight: ["500", "600"],
@@ -28,17 +28,20 @@ const workSans = Work_Sans({
 
 export const metadata: Metadata = {
   title: "NetJets | World's Leading Private Jet Company",
-  description: "NetJets is the world's leading private jet company. Explore fractional ownership, leases, and jet card programs.",
+  description:
+    "World's largest private jet company offering fractional aircraft ownership, private jet leases, and jet card programs. A Berkshire Hathaway company.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
+      data-theme="light"
       className={`${instrumentSerif.variable} ${barlow.variable} ${workSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
-        {/* Raw Motionsites glass — bypasses lightningcss which drops unprefixed backdrop-filter */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_FOUC_SCRIPT }} />
         <link rel="stylesheet" href="/liquid-glass.css" />
       </head>
       <body className="min-h-full flex flex-col font-body">{children}</body>

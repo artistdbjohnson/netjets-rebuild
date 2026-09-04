@@ -60,6 +60,7 @@ export default function FleetPreview() {
               <FleetFlipCard
                 jet={jet}
                 compact
+                frontOnly
                 aspectClassName="aspect-[4/3]"
                 titleHref="/fleet"
               />

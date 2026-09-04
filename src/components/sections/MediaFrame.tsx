@@ -15,7 +15,11 @@ export default function MediaFrame({
 }: MediaFrameProps) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl bg-[#121214] ring-1 ring-white/10 ${className}`}
+      className={`relative overflow-hidden rounded-2xl ${className}`}
+      style={{
+        background: "var(--media-frame)",
+        boxShadow: "inset 0 0 0 1px var(--media-ring)",
+      }}
     >
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element

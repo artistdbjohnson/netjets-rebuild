@@ -22,6 +22,8 @@ export type FleetFlipCardProps = {
   className?: string;
   /** Optional title link (e.g. home preview → /fleet). */
   titleHref?: string;
+  /** Homepage compact: exterior only (Vale). Flip stays on /fleet. */
+  frontOnly?: boolean;
 };
 
 const spring = {
@@ -54,6 +56,7 @@ export default function FleetFlipCard({
   compact = false,
   className = "",
   titleHref,
+  frontOnly = false,
 }: FleetFlipCardProps) {
   const reduceMotion = useReducedMotion();
   const fineHover = useFineHover();
@@ -68,7 +71,7 @@ export default function FleetFlipCard({
     setShowDarkPlaceholder(false);
   }, [jet.interior]);
 
-  const flipped = pinned || hovered;
+  const flipped = frontOnly ? false : pinned || hovered;
 
   const togglePinned = useCallback(() => {
     setPinned((v) => !v);
@@ -128,13 +131,16 @@ export default function FleetFlipCard({
               ? `${jet.name} cabin interior — activate to show exterior`
               : `${jet.name} exterior — activate to show cabin interior`
           }
-          onClick={togglePinned}
-          onKeyDown={onKeyDown}
+          onClick={frontOnly ? undefined : togglePinned}
+          onKeyDown={frontOnly ? undefined : onKeyDown}
           onMouseEnter={() => {
-            if (fineHover) setHovered(true);
+            if (!frontOnly && fineHover) setHovered(true);
           }}
           onMouseLeave={() => setHovered(false)}
-          className="absolute inset-0 block h-full w-full cursor-pointer overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0b]"
+          tabIndex={frontOnly ? -1 : undefined}
+          className={`absolute inset-0 block h-full w-full overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0b] ${
+            frontOnly ? "pointer-events-none cursor-default" : "cursor-pointer"
+          }`}
         >
           {reduceMotion ? (
             <div className="absolute inset-0">

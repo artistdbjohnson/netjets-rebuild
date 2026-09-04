@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 import { primaryNav } from "@/content/nav";
 
 const VIDEO_URL = "/video/imagine-flyover.mp4";
@@ -40,7 +41,7 @@ export default function Hero() {
   }, [mobileOpen]);
 
   return (
-    <section className="relative min-h-[100svh] w-full overflow-hidden bg-[#0a0a0b]">
+    <section data-cinematic className="relative min-h-[100svh] w-full overflow-hidden bg-[#0a0a0b]">
       {/* Mobile: Doug 9:16 Imagine hero — full Global 7500 + vertical clouds */}
       <video
         src={VIDEO_MOBILE_URL}
@@ -72,7 +73,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-72 sm:h-80 md:h-96"
         style={{
           background:
-            "linear-gradient(to top, #0a0a0b 0%, rgba(10,10,11,0.95) 22%, rgba(10,10,11,0.7) 48%, rgba(10,10,11,0.28) 72%, transparent 100%)",
+            "linear-gradient(to top, var(--bed) 0%, color-mix(in srgb, var(--bed) 95%, transparent) 22%, color-mix(in srgb, var(--bed) 70%, transparent) 48%, color-mix(in srgb, var(--bed) 28%, transparent) 72%, transparent 100%)",
         }}
         aria-hidden="true"
       />
@@ -101,6 +102,9 @@ export default function Hero() {
             </div>
           </nav>
 
+          <div className="flex items-center gap-0.5">
+            <ThemeToggle forceColor="light" className="hidden lg:inline-flex" />
+            <ThemeToggle forceColor="light" className="lg:hidden" />
           <button
             ref={buttonRef}
             type="button"
@@ -111,6 +115,7 @@ export default function Hero() {
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
+          </div>
         </div>
       </header>
 

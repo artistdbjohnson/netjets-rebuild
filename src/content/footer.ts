@@ -1,35 +1,24 @@
+/** Wren §L verbatim. §P gaps omitted. */
 export const footerData = {
   brand: "NetJets",
   phone: "+1.877.356.5823",
-  phoneHref: "tel:+18773565823",
+  phoneHref: "tel:+1.877.356.5823",
   address: "4111 Bridgeway Avenue, Columbus, Ohio 43219",
-  tagline: "World's Leading Private Jet Company",
-
-  explore: [
-    { name: "Programs", href: "/programs" },
-    { name: "Fleet", href: "/fleet" },
-    { name: "Private Aviation Solutions", href: "/private-aviation-solutions" },
-    { name: "Locations", href: "/locations" },
-    { name: "Careers", href: "/careers" },
-    { name: "About", href: "/about" },
-  ],
-
-  resources: [
-    { name: "Rates & Pricing", href: "/rates" },
-    { name: "Benefits", href: "/benefits" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Request Information", href: "/request" },
-  ],
-
+  addressHref:
+    "https://www.google.com/maps/search/?api=1&query=4111%20Bridgeway%20Avenue%2C%20Columbus%2C%20Ohio%2043219",
+  otherCompaniesHeading: "Other NetJets Companies",
+  copyright: "© 2026 NetJets IP, LLC",
+  scrollToTopLabel: "scroll to top",
   otherCompanies: [
-    { name: "EXECUTIVE JET MANAGEMENT", href: "https://www.executivejetmanagement.com/s/" },
-    { name: "QS PARTNERS", href: "https://www.qspartners.com/" },
-    { name: "QS SECURITY", href: "https://qssecurity.com/" },
+    { name: "Executive Jet Management", href: "https://www.executivejetmanagement.com/s/" },
+    { name: "QS Partners", href: "https://www.qspartners.com" },
+    { name: "QS Security", href: "https://qssecurity.com/" },
   ],
-
-  legal: [
-    { name: "Privacy Policy", href: "/privacy-main" },
-    { name: "CCPA Privacy Policy", href: "/ccpa-privacy-policy" },
+  links: [
+    { name: "Careers", href: "/careers" },
+    { name: "Global Network", href: "/locations" },
+    { name: "Legal & Privacy", href: "/privacy-main" },
+    { name: "CA Privacy", href: "/ccpa-privacy-policy" },
     { name: "Sitemap", href: "/sitemap" },
   ],
 } as const;

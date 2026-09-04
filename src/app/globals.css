@@ -12,7 +12,67 @@
   --font-logo: var(--font-logo), "Work Sans", sans-serif;
 }
 
-:root {
+:root,
+[data-theme="light"] {
+  --bed: #ffffff;
+  --bed-alt: #f6f4f2;
+  --ink: #262524;
+  --ink-muted: #777673;
+  --ink-soft: #444240;
+  --ink-subtle: #b0aeac;
+  --card: #ffffff;
+  --card-border: #d7d5d3;
+  --border: #eae8e6;
+  --champagne: #c1af7a;
+  --cta-bg: #1c3149;
+  --cta-fg: #ffffff;
+  --cta-hover: #3b536c;
+  --cta-secondary-fg: #1c3149;
+  --cta-secondary-border: #1c3149;
+  --contact-bar: #58748d;
+  --contact-ink: #ffffff;
+  --contact-ink-muted: rgba(255, 255, 255, 0.75);
+  --header-solid: rgba(255, 255, 255, 0.96);
+  --toggle-ink: #444240;
+  --focus-ring: #3b536c;
+  --media-frame: #eae8e6;
+  --media-placeholder: #777673;
+  --primary: #1c3149;
+  --secondary: #698fab;
+  --nj-neutral2: #eae8e6;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(215, 213, 211, 0.9);
+  --glass-shadow: 0 1px 2px rgba(38, 37, 36, 0.04);
+  --glass-blur: 12px;
+}
+
+[data-theme="dark"] {
+  --bed: #0a0a0b;
+  --bed-alt: #0a0a0b;
+  --ink: #ffffff;
+  --ink-muted: rgba(255, 255, 255, 0.6);
+  --ink-soft: rgba(255, 255, 255, 0.7);
+  --ink-subtle: rgba(255, 255, 255, 0.4);
+  --card: transparent;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.1);
+  --champagne: #c1af7a;
+  --cta-bg: #ffffff;
+  --cta-fg: #000000;
+  --cta-hover: rgba(255, 255, 255, 0.9);
+  --cta-secondary-fg: #ffffff;
+  --cta-secondary-border: rgba(255, 255, 255, 0.28);
+  --contact-bar: #0a0a0b;
+  --contact-ink: #ffffff;
+  --contact-ink-muted: rgba(255, 255, 255, 0.45);
+  --header-solid: rgba(10, 10, 11, 0.75);
+  --toggle-ink: #ffffff;
+  --focus-ring: rgba(255, 255, 255, 0.4);
+  --media-frame: #121214;
+  --media-placeholder: rgba(255, 255, 255, 0.25);
+  --primary: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.6);
+  --nj-neutral2: rgba(255, 255, 255, 0.08);
   --glass-bg: rgba(255, 255, 255, 0.12);
   --glass-border: rgba(255, 255, 255, 0.25);
   --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
@@ -20,24 +80,53 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
+  html { scroll-behavior: smooth; }
   body {
-    @apply bg-[#0a0a0b] text-white antialiased;
+    @apply antialiased;
+    background-color: var(--bed);
+    color: var(--ink);
     font-family: var(--font-body), "Barlow", sans-serif;
   }
 }
 
-/* liquid-glass moved to /public/liquid-glass.css (raw, both backdrop prefixes) */
-
-/* Wordmark J — emphasize legacy long descender */
 .logo-j {
   display: inline-block;
   transform: scaleY(1.12) translateY(0.06em);
   transform-origin: center top;
   font-feature-settings: "kern" 1;
+}
+
+.champagne-rule {
+  display: block;
+  width: 10rem;
+  max-width: 40%;
+  height: 1px;
+  margin-top: 0.75rem;
+  background: var(--champagne);
+  opacity: 0.85;
+}
+[data-theme="dark"] .champagne-rule { opacity: 0.7; }
+
+[data-theme="light"] section:not([data-cinematic]) .liquid-glass,
+[data-theme="light"] section:not([data-cinematic]) .liquid-glass-strong,
+[data-theme="light"] footer .liquid-glass,
+[data-theme="light"] footer .liquid-glass-strong {
+  background: var(--card) !important;
+  background-blend-mode: normal !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: 1px solid var(--card-border) !important;
+  box-shadow: 0 1px 2px rgba(38, 37, 36, 0.04) !important;
+}
+
+[data-theme="light"] header:not([data-cinematic]) .liquid-glass,
+[data-theme="light"] header:not([data-cinematic]) .liquid-glass-strong {
+  background: var(--header-solid) !important;
+  background-blend-mode: normal !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 1px 2px rgba(38, 37, 36, 0.06) !important;
 }
 
 @layer utilities {
@@ -47,14 +136,12 @@
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
-
   .glass-strong {
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.22);
   }
-
   .glass-dark {
     background: rgba(32, 33, 36, 0.65);
     backdrop-filter: blur(20px);
