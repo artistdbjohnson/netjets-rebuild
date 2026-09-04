@@ -57,14 +57,54 @@ export type AdditionalFleetEntry =
     };
 
 export const additionalFleet: AdditionalFleetEntry[] = [
-  "Bombardier Global 5000/5500",
-  "Bombardier Global 6000",
-  "Bombardier Challenger 650",
-  "Cessna Citation Longitude",
-  "Cessna Citation XLS",
-  "Cessna Citation Ascend",
-  "Cessna Citation Sovereign",
-  "Embraer Praetor 500",
+  {
+    name: "Bombardier Global 5000/5500",
+    category: "Large Cabin",
+    slug: "global-5000-5500",
+    exterior: "/jets/global-5000-5500.jpg",
+  },
+  {
+    name: "Bombardier Global 6000",
+    category: "Ultra Long-Range",
+    slug: "global-6000",
+    exterior: "/jets/global-6000.jpg",
+  },
+  {
+    name: "Bombardier Challenger 650",
+    category: "Large Cabin",
+    slug: "challenger-650",
+    exterior: "/jets/challenger-650.jpg",
+  },
+  {
+    name: "Cessna Citation Longitude",
+    category: "Super-Midsize",
+    slug: "citation-longitude",
+    exterior: "/jets/citation-longitude.jpg",
+  },
+  {
+    name: "Cessna Citation XLS",
+    category: "Midsize",
+    slug: "citation-xls",
+    exterior: "/jets/citation-xls.jpg",
+  },
+  {
+    name: "Cessna Citation Ascend",
+    category: "Midsize",
+    slug: "citation-ascend",
+    exterior: "/jets/citation-ascend.jpg",
+  },
+  {
+    name: "Cessna Citation Sovereign",
+    category: "Super-Midsize",
+    slug: "citation-sovereign",
+    exterior: "/jets/citation-sovereign.jpg",
+  },
+  {
+    name: "Embraer Praetor 500",
+    category: "Super-Midsize",
+    slug: "praetor-500",
+    exterior: "/jets/praetor-500.jpg",
+  },
 ];
 
 export const CABIN_INTERIOR_FALLBACK = "/jets/cabin-interior.jpg";
