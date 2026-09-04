@@ -12,7 +12,7 @@ export const footerData = {
   copyright: "© 2026 NetJets IP, LLC",
   scrollToTopLabel: "scroll to top",
   otherCompanies: [
-    { name: "Executive Jet Management", href: "https://www.executivejetmanagement.com/s/" },
+    { name: "Executive Jet Management", href: "https://ejm-rebuild.vercel.app" },
     { name: "QS Partners", href: "https://www.qspartners.com" },
     { name: "QS Security", href: "https://qssecurity.com/" },
   ],
