@@ -13,11 +13,16 @@ export default function Hero() {
 
   useEffect(() => {
     if (!mobileOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setMobileOpen(false);
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
   }, [mobileOpen]);
 
   return (
@@ -102,7 +107,14 @@ export default function Hero() {
                 className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-5 py-3 text-base font-semibold font-body text-black"
                 onClick={() => setMobileOpen(false)}
               >
-                Request
+                Request Information
+              </a>
+              <a
+                href="tel:+18773565823"
+                className="mt-2 inline-flex min-h-12 items-center justify-center rounded-full liquid-glass-strong px-5 py-3 text-base font-semibold font-body text-white"
+                onClick={() => setMobileOpen(false)}
+              >
+                Call Us
               </a>
             </nav>
           </div>

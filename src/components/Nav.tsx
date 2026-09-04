@@ -84,7 +84,14 @@ export default function Nav({ variant = "transparent" }: NavProps) {
               className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-white px-5 py-3 text-base font-semibold font-body text-black"
               onClick={() => setMobileOpen(false)}
             >
-              Request
+              Request Information
+            </a>
+            <a
+              href="tel:+18773565823"
+              className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-full liquid-glass-strong px-5 py-3 text-base font-semibold font-body text-white"
+              onClick={() => setMobileOpen(false)}
+            >
+              Call Us
             </a>
           </nav>
         </div>
