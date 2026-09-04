@@ -25,6 +25,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${instrumentSerif.variable} ${barlow.variable} h-full antialiased`}>
+      <head>
+        {/* Raw Motionsites glass — bypasses lightningcss which drops unprefixed backdrop-filter */}
+        <link rel="stylesheet" href="/liquid-glass.css" />
+      </head>
       <body className="min-h-full flex flex-col font-body">{children}</body>
     </html>
   );
