@@ -31,7 +31,7 @@ export default function NetJetsVsOthers() {
           transition={{ duration: 0.55, delay: 0.06, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <MediaFrame
-            src="/home/netjets-vs-others-hangar.jpg"
+            src="/media/home/netjets-vs-others-hangar.jpg"
             alt="NetJets vs. others"
           />
         </motion.div>

@@ -31,7 +31,7 @@ export default function NewAircraft() {
           transition={{ duration: 0.55, delay: 0.06, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <MediaFrame
-            src="/home/fleet-tails-2026.jpg"
+            src="/media/home/fleet-tails-2026.jpg"
             alt="80+ new aircraft arriving in 2026"
           />
         </motion.div>

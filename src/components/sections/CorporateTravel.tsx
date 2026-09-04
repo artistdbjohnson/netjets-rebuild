@@ -15,7 +15,7 @@ export default function CorporateTravel() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <MediaFrame
-            src="/home/corporate-travel-perfected.jpg"
+            src="/media/home/corporate-travel-perfected.jpg"
             alt="Corporate travel, perfected"
           />
         </motion.div>

@@ -9,7 +9,7 @@ export default function NewsLink() {
     <section id="news" className="relative bg-[#0a0a0b] py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.a
-          href="/news"
+          href="/#news"
           className="group grid overflow-hidden rounded-2xl liquid-glass md:grid-cols-[1.2fr_1fr]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ export default function NewsLink() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <MediaFrame
-            src="/home/safety-insights-hero.jpg"
+            src="/media/home/safety-insights-hero.jpg"
             alt="See all NetJets News"
             className="rounded-none ring-0"
           />

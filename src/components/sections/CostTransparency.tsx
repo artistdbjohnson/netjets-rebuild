@@ -15,7 +15,7 @@ export default function CostTransparency() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <MediaFrame
-            src="/home/cost-transparency-hero.jpg"
+            src="/media/home/cost-transparency-hero.jpg"
             alt="Cost transparency, investment confidence"
           />
         </motion.div>

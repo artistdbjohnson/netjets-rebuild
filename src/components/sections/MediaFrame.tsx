@@ -1,5 +1,5 @@
 type MediaFrameProps = {
-  /** Public path, e.g. /home/cost-transparency-hero.jpg */
+  /** Public path, e.g. /media/home/cost-transparency-hero.jpg */
   src?: string;
   alt?: string;
   className?: string;

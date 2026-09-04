@@ -17,9 +17,8 @@ export default function UnsurpassableLuxury() {
         >
           <div className="grid md:grid-cols-2">
             <MediaFrame
-              src="/home/midsize-maximized-ascend.jpg"
-              alt="Unsurpassable luxury"
-              className="rounded-none ring-0 md:min-h-[280px] md:aspect-auto md:h-full"
+              label="/media/home/unsurpassable-luxury"
+              className="rounded-none ring-0 md:min-h-[280px]"
             />
             <div className="relative z-10 flex flex-col justify-center p-8 md:p-12">
               <h2 className="font-heading italic text-3xl tracking-tight text-white md:text-4xl lg:text-5xl">
