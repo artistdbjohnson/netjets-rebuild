@@ -52,7 +52,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-transparent" />
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/75 to-transparent sm:h-52 md:h-64"
         aria-hidden="true"
@@ -105,7 +105,7 @@ export default function Hero() {
           />
           <div
             ref={panelRef}
-            className="fixed inset-x-0 bottom-0 z-50 max-h-[85svh] overflow-y-auto rounded-t-3xl bg-[#0a0a0b]/92 liquid-glass-strong px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl lg:hidden"
+            className="fixed inset-x-0 bottom-0 z-50 max-h-[85svh] overflow-y-auto rounded-t-3xl bg-[#0a0a0b]/95 border border-white/10 backdrop-blur-xl px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation"
@@ -147,12 +147,12 @@ export default function Hero() {
           aria-hidden="true"
         />
         <div className="relative">
-          <h1 className="mx-auto w-full max-w-xl font-heading italic text-white leading-[0.92] tracking-tight sm:max-w-4xl md:tracking-[-0.04em]">
+          <h1 className="mx-auto w-full max-w-[20rem] font-heading italic text-white leading-[0.92] tracking-tight sm:max-w-4xl md:tracking-[-0.04em]">
             <span className="block text-[1.85rem] text-white sm:text-4xl md:text-5xl lg:text-[4.25rem]">
               WHICH PROGRAM IS BEST FOR YOU?
             </span>
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-sm font-body font-light uppercase leading-snug tracking-[0.06em] text-white sm:mt-5 md:text-base lg:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-[0.8125rem] font-body font-light uppercase leading-snug tracking-[0.06em] text-white sm:mt-5 sm:text-sm md:text-base lg:text-lg">
             COMPARE OUR SHARE AND CARD TO FIND YOUR IDEAL SOLUTION
           </p>
         </div>
