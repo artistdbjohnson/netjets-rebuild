@@ -30,7 +30,7 @@ export const brand = {
   name: "NetJets",
   phone: "+1.877.356.5823",
   phoneHref: "tel:+18773565823",
-  address: "4151 Bridgeway Ave, Columbus, OH 43219",
+  address: "4111 Bridgeway Avenue, Columbus, Ohio 43219",
   tagline: "World's Leading Private Jet Company",
 } as const;
 

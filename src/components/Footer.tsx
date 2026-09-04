@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 md:flex-row md:items-center">
-          <p className="text-xs font-body font-light text-white/40">© {new Date().getFullYear()} NetJets Inc. All rights reserved.</p>
+          <p className="text-xs font-body font-light text-white/40">© {new Date().getFullYear()} NetJets IP, LLC</p>
           <div className="flex flex-col items-start gap-2 md:flex-row md:items-center md:gap-6">
             <p className="text-xs font-body font-light text-white/40">NetJets is a Berkshire Hathaway company.</p>
             <a
