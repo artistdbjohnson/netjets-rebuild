@@ -103,8 +103,7 @@ export default function Hero() {
           </nav>
 
           <div className="flex items-center gap-0.5">
-            <ThemeToggle forceColor="light" className="hidden lg:inline-flex" />
-            <ThemeToggle forceColor="light" className="lg:hidden" />
+            <ThemeToggle forceColor="light" />
           <button
             ref={buttonRef}
             type="button"
