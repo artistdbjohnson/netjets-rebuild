@@ -6,7 +6,7 @@ import MediaFrame from "./MediaFrame";
 /** Live band: UNSURPASSABLE LUXURY */
 export default function UnsurpassableLuxury() {
   return (
-    <section className="relative bg-[#0a0a0b] py-16 md:py-24">
+    <section className="relative bg-[var(--bed)] py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           className="overflow-hidden rounded-2xl liquid-glass"
@@ -21,10 +21,10 @@ export default function UnsurpassableLuxury() {
               className="rounded-none ring-0 md:min-h-[280px]"
             />
             <div className="relative z-10 flex flex-col justify-center p-8 md:p-12">
-              <h2 className="font-heading italic text-3xl tracking-tight text-white md:text-4xl lg:text-5xl">
+              <h2 className="font-heading italic text-3xl tracking-tight text-[var(--ink)] md:text-4xl lg:text-5xl">
                 UNSURPASSABLE LUXURY
               </h2>
-              <p className="mt-4 max-w-md text-base font-body font-light text-white/60 md:text-lg">
+              <p className="mt-4 max-w-md text-base font-body font-light text-[var(--ink-muted)] md:text-lg">
                 Flying with NetJets means seamless travel and personalized experiences.
               </p>
             </div>

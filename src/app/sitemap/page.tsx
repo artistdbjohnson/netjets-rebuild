@@ -22,13 +22,13 @@ const links = [
 
 export default function SitemapPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0b]">
+    <main className="min-h-screen bg-[var(--bed)]">
       <Nav variant="solid" />
       <section className="pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">Sitemap</p>
-            <h1 className="max-w-3xl font-heading italic text-5xl tracking-tight leading-[0.9] text-white md:text-6xl lg:text-7xl">
+            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-[var(--ink)]">Sitemap</p>
+            <h1 className="max-w-3xl font-heading italic text-5xl tracking-tight leading-[0.9] text-[var(--ink)] md:text-6xl lg:text-7xl">
               Site map
             </h1>
           </motion.div>
@@ -39,7 +39,7 @@ export default function SitemapPage() {
           <ul className="grid gap-3 sm:grid-cols-2">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="text-sm font-body font-light text-white/70 transition-colors hover:text-white">
+                <a href={l.href} className="text-sm font-body font-light text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]">
                   {l.label}
                 </a>
               </li>

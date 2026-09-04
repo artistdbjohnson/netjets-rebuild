@@ -58,7 +58,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
         }`}
       >
         <div className="relative z-10 shrink-0">
-          <Logo className="h-7" variant="theme" />
+          <Logo className="h-7" themeAware />
         </div>
 
         <nav className="hidden items-center lg:flex">
@@ -67,14 +67,14 @@ export default function Nav({ variant = "transparent" }: NavProps) {
               <a
                 key={item.href}
                 href={item.href}
-                className="relative z-10 px-3 py-2 text-sm font-medium font-body text-white/90 transition-colors hover:text-white"
+                className="relative z-10 px-3 py-2 text-sm font-medium font-body text-[var(--ink)] transition-colors hover:text-[var(--ink)]"
               >
                 {item.label}
               </a>
             ))}
             <a
               href="/request"
-              className="relative z-10 ml-1 rounded-full bg-white px-3.5 py-1.5 text-sm font-medium font-body text-black transition-colors hover:bg-white/90"
+              className="relative z-10 ml-1 rounded-full bg-[var(--cta-bg)] px-3.5 py-1.5 text-sm font-medium font-body text-[var(--cta-fg)] transition-colors hover:opacity-90"
             >
               Request
             </a>
@@ -86,7 +86,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
         <button
           ref={buttonRef}
           type="button"
-          className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full liquid-glass text-white lg:hidden"
+          className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full liquid-glass text-[var(--ink)] lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -106,33 +106,36 @@ export default function Nav({ variant = "transparent" }: NavProps) {
           />
           <div
             ref={panelRef}
-            className="fixed inset-x-0 bottom-0 z-50 max-h-[85svh] overflow-y-auto rounded-t-3xl bg-[#0a0a0b]/95 border border-white/10 backdrop-blur-xl px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl lg:hidden"
+            className="fixed inset-x-0 bottom-0 z-50 max-h-[85svh] overflow-y-auto rounded-t-3xl border border-[var(--sheet-border)] bg-[var(--sheet-bg)] backdrop-blur-xl px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation"
           >
-            <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-white/30" aria-hidden="true" />
+            <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-[var(--sheet-handle)]" aria-hidden="true" />
             <nav className="relative z-10 flex flex-col gap-1">
               {primaryNav.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="flex min-h-12 items-center rounded-xl px-3 text-lg font-medium font-body text-white/90"
+                  className="flex min-h-12 items-center rounded-xl px-3 text-lg font-medium font-body text-[var(--ink)]"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
+              <div className="mt-2 flex justify-center py-1">
+                <ThemeToggle />
+              </div>
               <a
                 href="/request"
-                className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-white px-5 py-3 text-base font-semibold font-body text-black"
+                className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[var(--cta-bg)] px-5 py-3 text-base font-semibold font-body text-[var(--cta-fg)]"
                 onClick={() => setMobileOpen(false)}
               >
                 Request Information
               </a>
               <a
                 href="tel:+18773565823"
-                className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-full liquid-glass-strong px-5 py-3 text-base font-semibold font-body text-white"
+                className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-full liquid-glass-strong px-5 py-3 text-base font-semibold font-body text-[var(--ink)]"
                 onClick={() => setMobileOpen(false)}
               >
                 Call Us

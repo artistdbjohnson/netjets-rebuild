@@ -52,6 +52,9 @@ html[data-theme="light"] {
   --contact-ink-muted: #777673;
   --media-frame: #eae8e6;
   --media-ring: #d7d5d3;
+  --sheet-bg: rgba(255, 255, 255, 0.95);
+  --sheet-border: #eae8e6;
+  --sheet-handle: rgba(38, 37, 36, 0.25);
 
   --glass-bg: rgba(28, 49, 73, 0.06);
   --glass-border: rgba(28, 49, 73, 0.12);
@@ -98,6 +101,9 @@ html[data-theme="dark"] {
   --contact-ink-muted: rgba(255, 255, 255, 0.45);
   --media-frame: #121214;
   --media-ring: rgba(255, 255, 255, 0.1);
+  --sheet-bg: rgba(10, 10, 11, 0.95);
+  --sheet-border: rgba(255, 255, 255, 0.1);
+  --sheet-handle: rgba(255, 255, 255, 0.3);
 
   --glass-bg: rgba(255, 255, 255, 0.12);
   --glass-border: rgba(255, 255, 255, 0.25);

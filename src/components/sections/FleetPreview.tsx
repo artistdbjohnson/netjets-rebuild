@@ -23,7 +23,7 @@ const item = {
 
 export default function FleetPreview() {
   return (
-    <section className="relative bg-[#0a0a0b] py-24 md:py-32">
+    <section className="relative bg-[var(--bed)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           className="mb-14 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end"
@@ -33,16 +33,16 @@ export default function FleetPreview() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
         >
           <div className="max-w-2xl">
-            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
+            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-[var(--ink)]">
               EXPERIENCE THE LARGEST, MOST DIVERSE PRIVATE JET FLEET
             </p>
-            <h2 className="font-heading italic text-4xl tracking-tight leading-[0.9] text-white md:text-5xl lg:text-[3.75rem]">
+            <h2 className="font-heading italic text-4xl tracking-tight leading-[0.9] text-[var(--ink)] md:text-5xl lg:text-[3.75rem]">
               Increased Access To Luxury Private Jets
             </h2>
           </div>
           <a
             href="/fleet"
-            className="relative z-10 liquid-glass-strong rounded-full px-7 py-3 text-sm font-medium font-body text-white transition-colors hover:bg-white/5"
+            className="relative z-10 liquid-glass-strong rounded-full px-7 py-3 text-sm font-medium font-body text-[var(--ink)] transition-colors hover:bg-white/5"
           >
             View Full Fleet
           </a>

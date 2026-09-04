@@ -6,7 +6,7 @@ import MediaFrame from "./MediaFrame";
 /** Live: CORPORATE TRAVEL, PERFECTED */
 export default function CorporateTravel() {
   return (
-    <section className="relative bg-[#0a0a0b] py-16 md:py-24">
+    <section className="relative bg-[var(--bed)] py-16 md:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,12 +27,12 @@ export default function CorporateTravel() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.55, delay: 0.06, ease: [0.22, 1, 0.36, 1] as const }}
         >
-          <h2 className="relative z-10 font-heading italic text-2xl tracking-tight text-white md:text-3xl lg:text-4xl">
+          <h2 className="relative z-10 font-heading italic text-2xl tracking-tight text-[var(--ink)] md:text-3xl lg:text-4xl">
             CORPORATE TRAVEL,
             <br />
             PERFECTED
           </h2>
-          <p className="relative z-10 mt-4 text-base font-body font-light text-white/60 md:text-lg">
+          <p className="relative z-10 mt-4 text-base font-body font-light text-[var(--ink-muted)] md:text-lg">
             Enhance your competitive edge
           </p>
         </motion.a>

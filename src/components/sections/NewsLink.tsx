@@ -6,7 +6,7 @@ import MediaFrame from "./MediaFrame";
 /** Live cue: See all NetJets News */
 export default function NewsLink() {
   return (
-    <section id="news" className="relative bg-[#0a0a0b] py-16 md:py-24">
+    <section id="news" className="relative bg-[var(--bed)] py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.a
           href="/#news"
@@ -22,7 +22,7 @@ export default function NewsLink() {
             className="rounded-none ring-0"
           />
           <div className="relative z-10 flex flex-col justify-center p-8 md:p-10">
-            <h2 className="font-heading italic text-2xl tracking-tight text-white md:text-3xl">
+            <h2 className="font-heading italic text-2xl tracking-tight text-[var(--ink)] md:text-3xl">
               See all NetJets News
             </h2>
           </div>

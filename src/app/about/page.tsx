@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0b]">
+    <main className="min-h-screen bg-[var(--bed)]">
       <Nav variant="solid" />
 
       <section className="pt-32 pb-16 md:pt-40 md:pb-24">
@@ -16,9 +16,9 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">About</p>
-            <h1 className="max-w-3xl font-heading italic text-5xl tracking-tight leading-[0.9] text-white md:text-6xl lg:text-7xl">
-              The standard<br /><span className="text-white/55">the industry is measured against.</span>
+            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-[var(--ink)]">About</p>
+            <h1 className="max-w-3xl font-heading italic text-5xl tracking-tight leading-[0.9] text-[var(--ink)] md:text-6xl lg:text-7xl">
+              The standard<br /><span className="text-[var(--ink-muted)]">the industry is measured against.</span>
             </h1>
           </motion.div>
         </div>
@@ -34,16 +34,16 @@ export default function AboutPage() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div>
-              <p className="text-base font-body font-light leading-relaxed text-white/60">
+              <p className="text-base font-body font-light leading-relaxed text-[var(--ink-muted)]">
                 NetJets is the world's largest private jet company. Fractional ownership, lease programs, and hour-based access — built on one foundation: a rigorously maintained fleet, expert crews, and service that treats every detail as non-negotiable.
               </p>
-              <p className="mt-6 text-base font-body font-light leading-relaxed text-white/60">
+              <p className="mt-6 text-base font-body font-light leading-relaxed text-[var(--ink-muted)]">
                 From light jets to ultra-long-range aircraft, the experience stays consistent whether the mission is a short domestic leg or an intercontinental flight. Safety is the operating culture. Flexibility is the product.
               </p>
             </div>
             <div className="liquid-glass rounded-2xl p-8 transition-colors">
-              <h2 className="mb-4 font-heading italic text-lg tracking-tight text-white">At a glance</h2>
-              <ul className="space-y-3 text-sm font-body font-light text-white/60">
+              <h2 className="mb-4 font-heading italic text-lg tracking-tight text-[var(--ink)]">At a glance</h2>
+              <ul className="space-y-3 text-sm font-body font-light text-[var(--ink-muted)]">
                 <li>• World's largest private jet fleet operator</li>
                 <li>• A Berkshire Hathaway company</li>
                 <li>• Headquarters in Columbus, Ohio</li>

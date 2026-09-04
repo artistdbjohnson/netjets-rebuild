@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function RatesPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0b]">
+    <main className="min-h-screen bg-[var(--bed)]">
       <Nav variant="solid" />
 
       <section className="pt-32 pb-16 md:pt-40 md:pb-24">
@@ -16,15 +16,15 @@ export default function RatesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-white">
+            <p className="mb-4 inline-flex liquid-glass rounded-full px-3.5 py-1 text-xs font-medium font-body text-[var(--ink)]">
               Rates & Pricing
             </p>
-            <h1 className="max-w-3xl font-heading italic text-5xl tracking-tight leading-[0.9] text-white md:text-6xl lg:text-7xl">
+            <h1 className="max-w-3xl font-heading italic text-5xl tracking-tight leading-[0.9] text-[var(--ink)] md:text-6xl lg:text-7xl">
               Access is the
               <br />
-              <span className="text-white/55">product.</span>
+              <span className="text-[var(--ink-muted)]">product.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg font-body font-light text-white/60">
+            <p className="mt-6 max-w-xl text-lg font-body font-light text-[var(--ink-muted)]">
               There is no rate card. Every structure is built from how you fly --
               aircraft, hours, geography, and the services that remove friction
               from the journey.
@@ -59,10 +59,10 @@ export default function RatesPage() {
               }}
               className="liquid-glass rounded-2xl p-8 transition-colors"
             >
-              <h2 className="mb-4 font-heading italic text-xl tracking-tight text-white">
+              <h2 className="mb-4 font-heading italic text-xl tracking-tight text-[var(--ink)]">
                 What determines cost
               </h2>
-              <ul className="space-y-3 text-sm font-body font-light leading-relaxed text-white/60">
+              <ul className="space-y-3 text-sm font-body font-light leading-relaxed text-[var(--ink-muted)]">
                 <li>• Structure — Share, Lease, or hour-based access</li>
                 <li>• Aircraft category and cabin volume</li>
                 <li>• Annual hours and peak-day demand</li>
@@ -82,24 +82,24 @@ export default function RatesPage() {
               }}
               className="liquid-glass rounded-2xl p-8 transition-colors"
             >
-              <h2 className="mb-4 font-heading italic text-xl tracking-tight text-white">
+              <h2 className="mb-4 font-heading italic text-xl tracking-tight text-[var(--ink)]">
                 How the quote is formed
               </h2>
-              <p className="mb-6 text-sm font-body font-light leading-relaxed text-white/60">
+              <p className="mb-6 text-sm font-body font-light leading-relaxed text-[var(--ink-muted)]">
                 Owner Services maps your actual travel pattern, then designs
                 the most efficient structure. The number is confidential,
                 specific, and built around certainty — not a brochure.
               </p>
               <a
                 href="/request"
-                className="inline-flex rounded-full bg-white px-7 py-3 text-sm font-semibold font-body text-black transition-colors hover:bg-white/90"
+                className="inline-flex rounded-full bg-[var(--cta-bg)] px-7 py-3 text-sm font-semibold font-body text-[var(--cta-fg)] transition-colors hover:opacity-90"
               >
                 Request a Quote
               </a>
             </motion.div>
           </motion.div>
 
-          <p className="mt-12 max-w-2xl text-sm font-body font-light text-white/40">
+          <p className="mt-12 max-w-2xl text-sm font-body font-light text-[var(--ink-subtle)]">
             NetJets does not publish fixed public rates. Pricing is
             individualized. The conversation begins with your schedule.
           </p>
