@@ -41,7 +41,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden bg-[#0a0a0b]">
-      {/* Mobile: Lux 9:16 Imagine — full Global 7500 nose-to-tail + vertical clouds */}
+      {/* Mobile: Doug 9:16 Imagine hero — full Global 7500 + vertical clouds */}
       <video
         src={VIDEO_MOBILE_URL}
         poster={POSTER_MOBILE}
@@ -67,8 +67,13 @@ export default function Hero() {
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-transparent" />
+      {/* Soft cinematic fade into the next section */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-52 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/85 to-transparent sm:h-56 md:h-64"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-72 sm:h-80 md:h-96"
+        style={{
+          background:
+            "linear-gradient(to top, #0a0a0b 0%, rgba(10,10,11,0.95) 22%, rgba(10,10,11,0.7) 48%, rgba(10,10,11,0.28) 72%, transparent 100%)",
+        }}
         aria-hidden="true"
       />
 
