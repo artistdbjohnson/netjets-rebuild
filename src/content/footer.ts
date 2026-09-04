@@ -22,9 +22,9 @@ export const footerData = {
   ],
 
   otherCompanies: [
-    { name: "Executive Jet Management", href: "https://www.executivejetmanagement.com/s/" },
-    { name: "QS Partners", href: "https://www.qspartners.com/" },
-    { name: "QS Security", href: "https://qssecurity.com/" },
+    { name: "EXECUTIVE JET MANAGEMENT", href: "https://www.executivejetmanagement.com/s/" },
+    { name: "QS PARTNERS", href: "https://www.qspartners.com/" },
+    { name: "QS SECURITY", href: "https://qssecurity.com/" },
   ],
 
   legal: [

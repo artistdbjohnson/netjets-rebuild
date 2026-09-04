@@ -9,6 +9,7 @@
   --font-heading: var(--font-heading), "Instrument Serif", serif;
   --font-body: var(--font-body), "Barlow", sans-serif;
   --font-sans: var(--font-body), "Barlow", sans-serif;
+  --font-logo: var(--font-logo), "Work Sans", sans-serif;
 }
 
 :root {
@@ -30,6 +31,14 @@
 }
 
 /* liquid-glass moved to /public/liquid-glass.css (raw, both backdrop prefixes) */
+
+/* Wordmark J — emphasize legacy long descender */
+.logo-j {
+  display: inline-block;
+  transform: scaleY(1.12) translateY(0.06em);
+  transform-origin: center top;
+  font-feature-settings: "kern" 1;
+}
 
 @layer utilities {
   .glass {

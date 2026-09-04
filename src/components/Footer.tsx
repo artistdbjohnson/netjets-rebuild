@@ -22,7 +22,7 @@ export default function Footer() {
             <ul className="space-y-3">{footerData.resources.map((item) => (<li key={item.name}><a href={item.href} className="text-sm font-body font-light text-white/70 transition-colors hover:text-white">{item.name}</a></li>))}</ul>
           </div>
           <div className="md:col-span-2">
-            <h3 className="mb-5 text-xs font-medium font-body uppercase tracking-wider text-white/40">Other Companies</h3>
+            <h3 className="mb-5 text-xs font-medium font-body uppercase tracking-wider text-white/40">Other NetJets Companies</h3>
             <ul className="space-y-3">{footerData.otherCompanies.map((c) => (<li key={c.name}><a href={c.href} target="_blank" rel="noopener noreferrer" className="text-sm font-body font-light text-white/70 transition-colors hover:text-white">{c.name}</a></li>))}</ul>
           </div>
           <div className="md:col-span-2">
@@ -31,9 +31,8 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 md:flex-row md:items-center">
-          <p className="text-xs font-body font-light text-white/40">© {new Date().getFullYear()} NetJets IP, LLC</p>
+          <p className="text-xs font-body font-light text-white/40">© 2026 NetJets IP, LLC</p>
           <div className="flex flex-col items-start gap-2 md:flex-row md:items-center md:gap-6">
-            <p className="text-xs font-body font-light text-white/40">NetJets is a Berkshire Hathaway company.</p>
             <a
               href="https://www.douglxss.com/"
               target="_blank"

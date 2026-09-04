@@ -56,9 +56,9 @@ export default function Nav({ variant = "transparent" }: NavProps) {
           isTransparent ? "bg-transparent" : "liquid-glass"
         }`}
       >
-        <a href="/" className="relative z-10 shrink-0">
+        <div className="relative z-10 shrink-0">
           <Logo className="h-7 text-white" />
-        </a>
+        </div>
 
         <nav className="hidden items-center lg:flex">
           <div className="liquid-glass flex items-center rounded-full px-1.5 py-1">
