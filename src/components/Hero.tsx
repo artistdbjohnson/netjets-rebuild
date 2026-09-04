@@ -41,7 +41,7 @@ export default function Hero() {
   }, [mobileOpen]);
 
   return (
-    <section data-cinematic className="relative min-h-[100svh] w-full overflow-hidden bg-[#0a0a0b]">
+    <section data-cinematic className="relative min-h-[100svh] w-full overflow-hidden bg-[var(--bed)]">
       {/* Mobile: Doug 9:16 Imagine hero — full Global 7500 + vertical clouds */}
       <video
         src={VIDEO_MOBILE_URL}

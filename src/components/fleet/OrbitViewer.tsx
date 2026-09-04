@@ -15,7 +15,7 @@ const Global7500Scene = dynamic(() => import("./Global7500Scene"), {
 
 export default function OrbitViewer() {
   return (
-    <section className="relative bg-[#0a0a0b] py-24 md:py-32">
+    <section className="relative bg-[var(--bed)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           className="mb-10 max-w-2xl"

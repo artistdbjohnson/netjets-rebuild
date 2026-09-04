@@ -119,7 +119,7 @@ export default function FleetFlipCard({
       className={`group/card liquid-glass rounded-2xl transition-all ${className}`.trim()}
     >
       <div
-        className={`${aspectClassName} relative overflow-hidden bg-[#0a0a0b]`}
+        className={`${aspectClassName} relative overflow-hidden bg-[var(--bed)]`}
         style={{ perspective: reduceMotion ? undefined : 1200 }}
       >
         <button
@@ -138,7 +138,7 @@ export default function FleetFlipCard({
           }}
           onMouseLeave={() => setHovered(false)}
           tabIndex={frontOnly ? -1 : undefined}
-          className={`absolute inset-0 block h-full w-full overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0b] ${
+          className={`absolute inset-0 block h-full w-full overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bed)] ${
             frontOnly ? "pointer-events-none cursor-default" : "cursor-pointer"
           }`}
         >
@@ -257,7 +257,7 @@ function CabinFace({
     <div className="relative h-full w-full bg-[#0c0c0e]">
       {showDarkPlaceholder ? (
         <div
-          className="absolute inset-0 bg-gradient-to-br from-white/[0.07] via-[#0a0a0b] to-[#121216]"
+          className="absolute inset-0 bg-gradient-to-br from-white/[0.07] via-[var(--bed)] to-[#121216]"
           aria-hidden
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,255,255,0.08),transparent_55%)]" />
