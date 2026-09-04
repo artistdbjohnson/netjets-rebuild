@@ -58,7 +58,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
         }`}
       >
         <div className="relative z-10 shrink-0">
-          <Logo className="h-7" variant="theme" />
+          <Logo className="h-7" themeAware />
         </div>
 
         <nav className="hidden items-center lg:flex">
