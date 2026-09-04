@@ -2,29 +2,14 @@
 
 import { motion } from "framer-motion";
 
-/**
- * Owners Lounge — link-out hub only.
- * CTA labels + URLs from tasker recon (exact THEIR words).
- */
+/** Owners Lounge (Doug) — link-out only. THEIR CTA labels only; no invented body. */
 const links = [
-  {
-    label: "Login",
-    href: "https://fly.netjets.com/applogin",
-    primary: true,
-  },
-  {
-    label: "Owner Portal",
-    href: "https://fly.netjets.com/applogin",
-    primary: false,
-  },
+  { label: "Login", href: "https://fly.netjets.com/applogin", primary: true },
+  { label: "Owner Portal", href: "https://fly.netjets.com/", primary: false },
+  { label: "Owner Digital Experience", href: "https://fly.netjets.com/", primary: false },
   {
     label: "NetJets App",
     href: "https://www.netjets.com/en-us/netjets-app-book-private-flights",
-    primary: false,
-  },
-  {
-    label: "Enroll",
-    href: "https://fly.netjets.com/Account/Enroll",
     primary: false,
   },
 ] as const;
@@ -43,12 +28,6 @@ export default function OwnersLounge() {
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
         >
-          <p
-            className="mb-3 text-xs font-medium font-body uppercase tracking-[0.14em]"
-            style={{ color: "var(--ink-muted)" }}
-          >
-            Owner Digital Experience
-          </p>
           <h2
             id="owners-lounge-title"
             className="font-heading italic text-[1.75rem] leading-[0.92] tracking-tight sm:text-3xl md:text-4xl"
@@ -57,7 +36,6 @@ export default function OwnersLounge() {
             Owners Lounge
           </h2>
           <span className="champagne-rule mb-6" aria-hidden />
-
           <div className="mt-6 flex flex-col gap-3 sm:max-w-md">
             {links.map((item) => (
               <a

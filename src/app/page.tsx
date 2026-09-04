@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
-import ContactUtility from "@/components/sections/ContactUtility";
 import OwnersLounge from "@/components/sections/OwnersLounge";
+import ContactUtility from "@/components/sections/ContactUtility";
 import Pinnacle from "@/components/sections/Pinnacle";
 import CostTransparency from "@/components/sections/CostTransparency";
 import NewAircraft from "@/components/sections/NewAircraft";
@@ -13,17 +13,16 @@ import ContactPhone from "@/components/sections/ContactPhone";
 import Footer from "@/components/Footer";
 
 /**
- * Homepage sequence (after dark liquid-glass hero):
- * 1 Contact utility → 2 Pinnacle → 3 Cost Transparency → 4 80+ New Aircraft →
- * 5 Unsurpassable Luxury → 6 Corporate Travel → 7 NetJets vs Others →
- * 8 News → 9 Explore Possibilities → 10 Contact phone → Footer
+ * After cinematic Motionsites hero:
+ * Owners Lounge → Contact → Pinnacle → cards… → Explore → Contact phone → Footer
+ * Theme: LIGHT default / DARK Motionsites via data-theme. Hero has no program headlines.
  */
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[var(--bed)]">
       <Hero />
-      <ContactUtility />
       <OwnersLounge />
+      <ContactUtility />
       <Pinnacle />
       <CostTransparency />
       <NewAircraft />

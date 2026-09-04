@@ -29,7 +29,7 @@ const workSans = Work_Sans({
 export const metadata: Metadata = {
   title: "NetJets | World's Leading Private Jet Company",
   description:
-    "World's largest private jet company offering fractional aircraft ownership, private jet leases, and jet card programs. A Berkshire Hathaway company.",
+    "NetJets is the world's leading private jet company. Explore fractional ownership, leases, and jet card programs.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

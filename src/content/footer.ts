@@ -1,4 +1,6 @@
-/** Wren §L verbatim. §P gaps omitted. */
+/**
+ * Footer — Wren §L verbatim. §P gaps omitted — zero invention.
+ */
 export const footerData = {
   brand: "NetJets",
   phone: "+1.877.356.5823",
