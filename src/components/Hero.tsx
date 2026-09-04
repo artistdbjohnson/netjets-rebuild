@@ -160,19 +160,6 @@ export default function Hero() {
         </>
       )}
 
-      <div className="relative z-20 mx-auto flex max-w-4xl flex-col px-4 pt-10 text-center sm:px-6 sm:pt-12 md:pt-14">
-        <div className="relative">
-          <h1 className="mx-auto w-full max-w-[20rem] font-heading italic text-white leading-[0.92] tracking-tight sm:max-w-4xl md:tracking-[-0.04em]">
-            <span className="block text-[1.85rem] text-white sm:text-4xl md:text-5xl lg:text-[4.25rem]">
-              WHICH PROGRAM IS BEST FOR YOU?
-            </span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-[0.8125rem] font-body font-light uppercase leading-snug tracking-[0.06em] text-white sm:mt-5 sm:text-sm md:text-base lg:text-lg">
-            COMPARE OUR SHARE AND CARD TO FIND YOUR IDEAL SOLUTION
-          </p>
-        </div>
-      </div>
-
       <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-stretch gap-3 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:items-center sm:px-6 sm:pb-10 sm:flex-row sm:justify-center md:pb-14">
         <a
           href="/request"
