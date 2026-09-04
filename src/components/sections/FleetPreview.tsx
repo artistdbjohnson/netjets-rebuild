@@ -88,7 +88,7 @@ export default function FleetPreview() {
                 <img
                   src={jet.image}
                   alt={jet.name}
-                  className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
                 />
               </div>
               <div className="relative z-10 p-6">
