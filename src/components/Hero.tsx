@@ -142,10 +142,6 @@ export default function Hero() {
       )}
 
       <div className="relative z-20 mx-auto flex max-w-4xl flex-col px-4 pt-10 text-center sm:px-6 sm:pt-12 md:pt-14">
-        <div
-          className="pointer-events-none absolute left-1/2 top-8 h-[75%] w-[min(100%,42rem)] -translate-x-1/2 rounded-[40%] bg-black/55 blur-3xl"
-          aria-hidden="true"
-        />
         <div className="relative">
           <h1 className="mx-auto w-full max-w-[20rem] font-heading italic text-white leading-[0.92] tracking-tight sm:max-w-4xl md:tracking-[-0.04em]">
             <span className="block text-[1.85rem] text-white sm:text-4xl md:text-5xl lg:text-[4.25rem]">
