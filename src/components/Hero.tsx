@@ -24,34 +24,9 @@ const SLIDESHOW = [
     pos: "center 22%",
   },
   {
-    src: "/jets/global-7500-golden-hour.jpg",
-    alt: "Bombardier Global 7500 at golden hour",
-    pos: "center 30%",
-  },
-  {
-    src: "/jets/challenger-350.jpg",
-    alt: "Bombardier Challenger 350",
-    pos: "center 40%",
-  },
-  {
-    src: "/jets/citation-latitude.jpg",
-    alt: "Cessna Citation Latitude",
-    pos: "center 35%",
-  },
-  {
-    src: "/jets/phenom-300e.jpg",
-    alt: "Embraer Phenom 300E",
-    pos: "center 40%",
-  },
-  {
-    src: "/jets/cabin-interior.jpg",
-    alt: "Private jet cabin interior",
-    pos: "center center",
-  },
-  {
-    src: "/jets/global-7500-side.jpg",
-    alt: "Bombardier Global 7500 side view",
-    pos: "center 35%",
+    src: "/jets/global-7500-reference.jpg",
+    alt: "Bombardier Global 7500 over clouds",
+    pos: "20% 10%",
   },
 ];
 
