@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import FleetFlyover from "@/components/fleet/FleetFlyover";
 
 const fleet = [
   {
@@ -96,14 +95,6 @@ export default function FleetPage() {
         </div>
       </section>
 
-      <section
-        id="fleet-flyover"
-        className="scroll-mt-20 pb-8 md:scroll-mt-24 md:pb-10"
-      >
-        <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <FleetFlyover />
-        </div>
-      </section>
 
       <section className="pb-12 md:pb-16">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
@@ -120,11 +111,11 @@ export default function FleetPage() {
                 variants={item}
                 className="group liquid-glass rounded-2xl transition-all"
               >
-                <div className="aspect-[16/10] overflow-hidden">
+                <div className="aspect-[16/10] overflow-hidden bg-[#0a0a0b]">
                   <img
                     src={jet.image}
                     alt={jet.name}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="relative z-10 p-7">
