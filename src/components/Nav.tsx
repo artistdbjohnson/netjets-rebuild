@@ -36,7 +36,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
           <Logo className="h-7 text-white" />
         </a>
 
-        <nav className="hidden items-center md:flex">
+        <nav className="hidden items-center lg:flex">
           <div className="liquid-glass flex items-center rounded-full px-1.5 py-1">
             {primaryNav.map((item) => (
               <a
@@ -58,7 +58,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
 
         <button
           type="button"
-          className="relative z-10 text-white md:hidden"
+          className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full liquid-glass text-white lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
@@ -67,13 +67,13 @@ export default function Nav({ variant = "transparent" }: NavProps) {
       </div>
 
       {mobileOpen && (
-        <div className="absolute left-4 right-4 top-full mt-2 liquid-glass rounded-2xl p-6 shadow-2xl md:hidden">
-          <nav className="relative z-10 flex flex-col gap-4">
+        <div className="absolute left-4 right-4 top-full mt-2 liquid-glass rounded-2xl p-6 shadow-2xl lg:hidden">
+          <nav className="relative z-10 flex flex-col gap-1">
             {primaryNav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-base font-medium font-body text-white/90"
+                className="rounded-xl px-3 py-3.5 text-lg font-medium font-body text-white/90"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
@@ -81,7 +81,7 @@ export default function Nav({ variant = "transparent" }: NavProps) {
             ))}
             <a
               href="/request"
-              className="mt-2 inline-flex w-fit rounded-full bg-white px-4 py-2 text-sm font-medium font-body text-black"
+              className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-white px-5 py-3 text-base font-semibold font-body text-black"
               onClick={() => setMobileOpen(false)}
             >
               Request
